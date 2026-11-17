@@ -133,6 +133,8 @@ h1,h2,h3,h4,h5{font-weight:400}
 .nav-dd.nav-sol .sol-card>span:last-child{display:block;padding:5px 20px 0;font-size:14px;line-height:1.45;color:var(--muted)}
 
 .nav-mega .int-grid{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:12px;padding:28px 28px 32px}
+.nav-mega.nav-int .nav-dd-menu{background:var(--teal-wash)}
+[data-theme="dark"] .nav-mega.nav-int .nav-dd-menu{background:var(--surface)}
 .nav-mega.nav-int .nav-dd-menu a.int-tile-nav{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;height:96px;padding:12px 10px;background:#fff;border-radius:12px;color:#31373F;white-space:nowrap;transition:transform .2s ease,box-shadow .2s ease}
 .nav-mega.nav-int .nav-dd-menu a.int-tile-nav:hover{background:#fff;color:var(--teal-d);transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,153,125,.14),var(--shadow)}
 .nav-mega.nav-int .int-tile-nav img{display:block;height:auto;max-width:100%}
