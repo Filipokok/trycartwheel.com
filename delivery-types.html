@@ -164,21 +164,23 @@
         <a href="#in-house" class="model-chip"><i class="ti ti-steering-wheel"></i> In-house delivery</a>
       </div>
     </div>
-    <div class="map-scene">
-      <img src="assets/map-bg.png" alt="">
-      <img src="assets/map-overlay.svg" alt="Cartwheel routes orders between your fleet and delivery providers" class="map-overlay">
-      <div class="map-badge map-badge-1">
-        <span style="font-family:var(--display);font-weight:700;font-size:22px;color:var(--head);letter-spacing:-.01em">Uber</span>
-        <img src="assets/logo-uber-direct-word.svg" alt="Uber Direct" style="width:76px">
-        <span class="map-badge-dot"><i class="ti ti-bike"></i></span>
-      </div>
-      <div class="map-badge map-badge-2">
-        <img src="assets/logo-rmda.png" alt="The RMDA" style="width:72px">
-        <span class="map-badge-dot"><i class="ti ti-car"></i></span>
-      </div>
-      <div class="map-badge map-badge-3">
-        <img src="assets/logo-doordash-drive.png" alt="DoorDash Drive" style="width:78px">
-        <span class="map-badge-dot"><i class="ti ti-scooter"></i></span>
+    <div class="map-scene" id="js-dt-map-outer">
+      <div class="map-stage" id="js-dt-map-stage">
+        <img src="assets/map-bg.png" alt="" class="map-bg">
+        <img src="assets/map-overlay.svg" alt="Cartwheel routes orders between your fleet and delivery providers" class="map-overlay">
+        <div class="map-badge rider" id="js-dt-rider-1">
+          <span class="uber-word" style="font-family:var(--display);font-weight:700;font-size:22px;color:var(--head);letter-spacing:-.01em">Uber</span>
+          <img src="assets/logo-uber-direct-word.svg" alt="Uber Direct" class="map-ink" style="width:76px">
+          <span class="map-badge-dot"><i class="ti ti-bike"></i></span>
+        </div>
+        <div class="map-badge rider" id="js-dt-rider-2">
+          <img src="assets/logo-rmda.png" alt="The RMDA" style="width:72px">
+          <span class="map-badge-dot"><i class="ti ti-car"></i></span>
+        </div>
+        <div class="map-badge rider" id="js-dt-rider-3">
+          <img src="assets/logo-doordash-drive.png" alt="DoorDash Drive" style="width:78px">
+          <span class="map-badge-dot"><i class="ti ti-scooter"></i></span>
+        </div>
       </div>
     </div>
   </div>
@@ -324,9 +326,15 @@
             <span class="dt-radial-ring dt-radial-ring-2"></span>
             <span class="dt-radial-ring dt-radial-ring-3"></span>
             <span class="dt-radial-ring dt-radial-center"><i class="ti ti-building-store"></i></span>
-            <span class="dt-radial-node dt-radial-node-1">Uber</span>
-            <span class="dt-radial-node dt-radial-node-2"><img src="assets/dd-mark2.png" alt="DoorDash"></span>
-            <span class="dt-radial-node dt-radial-node-3"><img src="assets/logo-rmda.png" alt="The RMDA" style="width:40px;height:auto"></span>
+            <div class="orbit" style="--d:22s">
+              <span class="dt-radial-pos dt-radial-pos-1"><span class="dt-radial-node dt-radial-node-1 orbit-rev" style="--d:22s">Uber</span></span>
+            </div>
+            <div class="orbit" style="--d:34s;animation-delay:-12s">
+              <span class="dt-radial-pos dt-radial-pos-2"><span class="dt-radial-node orbit-rev" style="--d:34s;animation-delay:-12s"><img src="assets/dd-mark2.png" alt="DoorDash"></span></span>
+            </div>
+            <div class="orbit" style="--d:46s;animation-delay:-30s">
+              <span class="dt-radial-pos dt-radial-pos-3"><span class="dt-radial-node orbit-rev" style="--d:46s;animation-delay:-30s"><img src="assets/logo-rmda.png" alt="The RMDA" style="width:40px;height:auto"></span></span>
+            </div>
           </div>
         </div>
         <div class="dt-third-panel" data-panel="2">

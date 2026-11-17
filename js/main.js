@@ -754,4 +754,39 @@
       });
     });
   }
+
+  /* ===== Delivery Types page: hero map riders (motion-path) ===== */
+  var dtMapOuter = document.getElementById('js-dt-map-outer');
+  var dtMapStage = document.getElementById('js-dt-map-stage');
+  if (dtMapOuter && dtMapStage) {
+    function dtApplyMapScale() {
+      dtMapStage.style.transform = 'scale(' + (dtMapOuter.clientWidth / 976) + ')';
+    }
+    if (window.ResizeObserver) {
+      new ResizeObserver(dtApplyMapScale).observe(dtMapOuter);
+    } else {
+      window.addEventListener('resize', dtApplyMapScale);
+    }
+    dtApplyMapScale();
+
+    var dtRiderPaths = [
+      "M345.701 212.739C312.586 198.188 252.477 172.8 222.774 161.561C195.539 151.256 162.568 142.132 146.06 137.979C143.421 137.316 140.65 137.599 138.182 138.745L118.393 147.933C115.512 149.27 112.22 149.416 109.232 148.337L95.833 143.498L60.7107 131.457L44.1533 131.457L26.5923 110.885L-40 32",
+      "M376.307 214.244L478.793 195.211C480.685 194.859 482.634 194.966 484.476 195.523L543.509 213.371C545.405 213.944 547.413 214.04 549.356 213.652L575.945 208.334C577.955 207.932 580.035 208.05 581.987 208.677L618.725 220.469C619.342 220.667 619.973 220.815 620.614 220.911L676.348 229.296L680.864 213.742L741.575 217.756L777.7 217.756L873.031 230.3L960 242",
+      "M374.3 224.279L413.14 240.786C414.003 241.153 414.906 241.417 415.83 241.575L460.177 249.123C460.867 249.241 461.228 250.011 460.877 250.616L427.699 307.755C426.265 310.225 423.999 312.105 421.306 313.059L404.909 318.866C403.942 319.209 404.051 320.61 405.059 320.799L424.626 324.467C425.193 324.574 425.751 324.72 426.297 324.907L485 344.94C487.403 345.76 490.004 345.8 492.43 345.053L501.742 342.188L503.248 341.686L528.836 332.153L553.924 328.641L610.119 332.153L635.707 353.226L755.624 402.899L830 434"
+    ];
+    function dtSpawnRider(el) {
+      var all = dtRiderPaths.map(function (_, i) { return i; });
+      var pool = el._dtPathIdx == null ? all : all.filter(function (i) { return i !== el._dtPathIdx; });
+      var idx = pool[Math.floor(Math.random() * pool.length)];
+      el._dtPathIdx = idx;
+      el.style.offsetPath = "path('" + dtRiderPaths[idx] + "')";
+    }
+    ['js-dt-rider-1', 'js-dt-rider-2', 'js-dt-rider-3'].forEach(function (id, i) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      dtSpawnRider(el);
+      el.style.animation = 'rideOut 13s linear ' + (i * 4.4) + 's infinite';
+      el.addEventListener('animationiteration', function () { dtSpawnRider(el); });
+    });
+  }
 })();
