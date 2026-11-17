@@ -309,4 +309,45 @@
     if (restTnext) restTnext.addEventListener('click', function () { rti = (rti + 1) % restTestimonials.length; renderRestT(); });
     renderRestT();
   }
+
+  /* ===== Platform Overview page: testimonial carousel ===== */
+  var platTestimonials = [
+    { photo: 'assets/people/osanloo.jpg', quote: '“With more than 60 Portillo’s locations nationwide and the highest average unit sales volumes in the fast-casual industry, we have a lot of deliveries to manage. Our experience with Cartwheel has been so positive that we invested in the company so they can further develop services with brands in mind.”', name: 'Michael Osanloo', role: 'CEO, Portillo’s' },
+    { photo: 'assets/people/barnett.jpg', quote: '“Cartwheel allows us to handle the highest priority orders with self-delivery, ensuring the experience is seamless, delivered with P.F. Chang’s hospitality and encouraging the customer to return for repeat deliveries through our native ordering platforms.”', name: 'Candice Barnett', role: 'VP Off-Premises Dining, P.F. Chang’s' },
+    { initials: 'SM', quote: '“With Cartwheel, our delivery program is as customizable as our menu. Since implementing Cartwheel’s tools, Potbelly has been able to offer faster, more efficient delivery to our customers from more than 400 locations nationwide.”', name: 'Sam Martinez', role: 'Business Systems Manager, Potbelly' },
+    { photo: 'assets/people/northway.jpg', quote: '“Cartwheel allowed us to adjust our order volume to driver availability, eliminating the worry of having enough drivers to maintain delivery quality.”', name: 'Dino Northway', role: 'Senior Manager Off-Premise Dining, Portillo’s' },
+    { photo: 'assets/people/schuster.png', quote: '“By implementing Cartwheel’s unified delivery management platform, we’ve streamlined our operations, reduced the load on team members, and enhanced our ability to ensure the best, most efficient customer service across all ordering channels.”', name: 'Amy Schuster', role: 'Vice President of IT, Jason’s Deli' },
+    { photo: 'assets/people/polk.png', quote: '“Together, Cartwheel and Omnicart technologies offer the optimal end-to-end delivery management solution for local delivery operators. Local providers can now access via open APIs the sophisticated tech and customizable offerings typically only available within expensive enterprise platforms.”', name: 'Kevin Polk', role: 'Owner, JackRabbit Deliveries' },
+    { initials: 'MS', quote: '“We continue to see real value in maintaining a direct relationship with our guests and investing in our in-house delivery capabilities. Cartwheel helps us bring in-house and third-party delivery together while maintaining a consistent guest experience.”', name: 'Moe Shrikian', role: 'EVP and General Counsel, Hungry Howie’s' }
+  ];
+  var platTcard = document.getElementById('js-tcard-plat');
+  var platTdotsEl = document.getElementById('js-tdots-plat');
+  if (platTcard && platTdotsEl) {
+    var pti = 0;
+    var platTdots = platTestimonials.map(function (_, n) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'case-dot';
+      dot.setAttribute('aria-label', 'Testimonial ' + (n + 1));
+      dot.addEventListener('click', function () { pti = n; renderPlatT(); });
+      platTdotsEl.appendChild(dot);
+      return dot;
+    });
+    function renderPlatT() {
+      var t = platTestimonials[pti];
+      platTcard.innerHTML =
+        '<div class="cat-tcard-mark">&rdquo;</div>' +
+        '<p class="cat-tcard-quote">' + t.quote + '</p>' +
+        '<div class="cat-tcard-attr">' +
+          '<div class="cat-tcard-avatar" style="overflow:hidden">' + (t.photo ? '<img src="' + t.photo + '" alt="" style="width:100%;height:100%;object-fit:cover">' : t.initials) + '</div>' +
+          '<div><div class="cat-tcard-name">' + t.name + '</div><div class="cat-tcard-role">' + t.role + '</div></div>' +
+        '</div>';
+      platTdots.forEach(function (d, n) { d.classList.toggle('active', n === pti); });
+    }
+    var platTprev = document.querySelector('.plat-tprev');
+    var platTnext = document.querySelector('.plat-tnext');
+    if (platTprev) platTprev.addEventListener('click', function () { pti = (pti - 1 + platTestimonials.length) % platTestimonials.length; renderPlatT(); });
+    if (platTnext) platTnext.addEventListener('click', function () { pti = (pti + 1) % platTestimonials.length; renderPlatT(); });
+    renderPlatT();
+  }
 })();
