@@ -185,20 +185,58 @@
     renderT();
   }
 
-  /* ===== Catering page: FAQ accordion ===== */
+  /* ===== FAQ accordion (smooth height animation) ===== */
   var faqRoot = document.getElementById('js-faq');
   if (faqRoot) {
-    faqRoot.querySelectorAll('.cat-faq-item').forEach(function (item) {
+    var faqItems = Array.prototype.slice.call(faqRoot.querySelectorAll('.cat-faq-item'));
+    var faqReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function faqOpen(item) {
+      var body = item.querySelector('.cat-faq-a');
+      item.classList.add('is-open');
+      if (faqReduced || item._busy) { body.style.display = 'block'; return; }
+      item._busy = true;
+      body.style.display = 'block';
+      body.style.overflow = 'hidden';
+      body.style.height = '0px';
+      body.style.opacity = '0';
+      var full = body.scrollHeight;
+      requestAnimationFrame(function () {
+        body.style.transition = 'height .42s cubic-bezier(.22,.7,.2,1),opacity .3s ease';
+        body.style.height = full + 'px';
+        body.style.opacity = '1';
+        setTimeout(function () {
+          body.style.transition = ''; body.style.height = ''; body.style.opacity = ''; body.style.overflow = '';
+          item._busy = false;
+        }, 440);
+      });
+    }
+
+    function faqClose(item) {
+      var body = item.querySelector('.cat-faq-a');
+      item.classList.remove('is-open');
+      if (faqReduced || item._busy) { body.style.display = 'none'; return; }
+      item._busy = true;
+      body.style.overflow = 'hidden';
+      body.style.height = body.scrollHeight + 'px';
+      body.style.opacity = '1';
+      requestAnimationFrame(function () {
+        body.style.transition = 'height .38s cubic-bezier(.32,.06,.24,1),opacity .3s ease';
+        body.style.height = '0px';
+        body.style.opacity = '0';
+        setTimeout(function () {
+          body.style.display = 'none';
+          body.style.transition = ''; body.style.height = ''; body.style.opacity = ''; body.style.overflow = '';
+          item._busy = false;
+        }, 390);
+      });
+    }
+
+    faqItems.forEach(function (item) {
       item.querySelector('.cat-faq-q').addEventListener('click', function () {
         var wasOpen = item.classList.contains('is-open');
-        faqRoot.querySelectorAll('.cat-faq-item').forEach(function (el) {
-          el.classList.remove('is-open');
-          el.querySelector('.cat-faq-q i').className = 'ti ti-plus';
-        });
-        if (!wasOpen) {
-          item.classList.add('is-open');
-          item.querySelector('.cat-faq-q i').className = 'ti ti-minus';
-        }
+        faqItems.forEach(function (el) { if (el !== item && el.classList.contains('is-open')) faqClose(el); });
+        if (wasOpen) faqClose(item); else faqOpen(item);
       });
     });
   }
@@ -254,6 +292,7 @@
           d.classList.toggle('is-active', match);
           if (match && !prefersReducedMotion) { d.classList.remove('rest-diagram-fade'); void d.offsetWidth; d.classList.add('rest-diagram-fade'); }
         });
+        document.querySelectorAll('.toast-model-case').forEach(function (c) { c.classList.toggle('is-active', c.getAttribute('data-tab') === target); });
       });
     });
   }
@@ -308,6 +347,45 @@
     if (restTprev) restTprev.addEventListener('click', function () { rti = (rti - 1 + restTestimonials.length) % restTestimonials.length; renderRestT(); });
     if (restTnext) restTnext.addEventListener('click', function () { rti = (rti + 1) % restTestimonials.length; renderRestT(); });
     renderRestT();
+  }
+
+  /* ===== Toast page: testimonial carousel ===== */
+  var toastTestimonials = [
+    { logo: 'assets/logo-portillos.svg', initials: 'MO', quote: '“With more than 60 Portillo’s locations nationwide and the highest average unit sales volumes in the fast-casual industry, we have a lot of deliveries to manage. It’s important that our brand is well-represented. Our experience with Cartwheel has been so positive that we invested in the company so they can further develop services with brands in mind.”', name: 'Michael Osanloo', role: 'CEO, Portillo’s' },
+    { logo: 'assets/logo-pfchangs.svg', initials: 'CB', quote: '“Cartwheel allows us to handle the highest priority orders with self-delivery, ensuring the experience is seamless, delivered with P.F. Chang’s hospitality and encouraging the customer to return for repeat deliveries through our native ordering platforms.”', name: 'Candice Barnett', role: 'VP, Off-Premise Dining, P.F. Chang’s' },
+    { logo: 'assets/logo-jasons-deli.svg', initials: 'AS', quote: '“By implementing Cartwheel’s unified delivery management platform, we’ve streamlined our operations, reduced the load on team members, and enhanced our ability to ensure the best, most efficient customer service across all ordering channels.”', name: 'Amy Schuster', role: 'VP of IT, Jason’s Deli' },
+    { logo: 'assets/logo-portillos.svg', initials: 'NS', quote: '“With Cartwheel we were able to use our team members to deliver our highest-value orders. Instead of relying exclusively on third-party delivery companies for fulfilment, we have been able to cross-train our staff so that they can become drivers for our own fleet.”', name: 'Nick Scarpino', role: 'SVP of Marketing, Portillo’s' }
+  ];
+  var toastTcard = document.getElementById('js-tcard-toast');
+  var toastTdotsEl = document.getElementById('js-tdots-toast');
+  if (toastTcard && toastTdotsEl) {
+    var tti = 0;
+    var toastTdots = toastTestimonials.map(function (_, n) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'case-dot';
+      dot.setAttribute('aria-label', 'Testimonial ' + (n + 1));
+      dot.addEventListener('click', function () { tti = n; renderToastT(); });
+      toastTdotsEl.appendChild(dot);
+      return dot;
+    });
+    function renderToastT() {
+      var t = toastTestimonials[tti];
+      toastTcard.innerHTML =
+        (t.logo ? '<img src="' + t.logo + '" alt="" class="cat-tcard-logo">' : '') +
+        '<div class="cat-tcard-mark">&rdquo;</div>' +
+        '<p class="cat-tcard-quote">' + t.quote + '</p>' +
+        '<div class="cat-tcard-attr">' +
+          '<div class="cat-tcard-avatar">' + t.initials + '</div>' +
+          '<div><div class="cat-tcard-name">' + t.name + '</div><div class="cat-tcard-role">' + t.role + '</div></div>' +
+        '</div>';
+      toastTdots.forEach(function (d, n) { d.classList.toggle('active', n === tti); });
+    }
+    var toastTprev = document.querySelector('.toast-tprev');
+    var toastTnext = document.querySelector('.toast-tnext');
+    if (toastTprev) toastTprev.addEventListener('click', function () { tti = (tti - 1 + toastTestimonials.length) % toastTestimonials.length; renderToastT(); });
+    if (toastTnext) toastTnext.addEventListener('click', function () { tti = (tti + 1) % toastTestimonials.length; renderToastT(); });
+    renderToastT();
   }
 
   /* ===== Platform Overview page: testimonial carousel ===== */
