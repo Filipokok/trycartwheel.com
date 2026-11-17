@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurant delivery management software — Cartwheel</title>
+<meta name="description" content="Delivery management software for restaurant chains. Run your own drivers, third-party providers, or Hybrid Delivery on one platform, with rules deciding where orders go.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="root" data-theme="light">
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" aria-label="Cartwheel home" class="logo-link">
+      <img src="assets/cartwheel-logo.svg" alt="Cartwheel" class="logo-img logo-light">
+      <img src="assets/cartwheel-logo-white.svg" alt="Cartwheel" class="logo-img logo-dark">
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#platform">Platform</a>
+      <a href="index.html#solutions">Solutions</a>
+      <a href="index.html#integrations">Integrations</a>
+      <a href="index.html#resources">Resources</a>
+      <a href="index.html#company">Company</a>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="icon-circle theme-toggle" aria-label="Toggle theme">
+        <i class="ti ti-moon-stars theme-icon-light" aria-hidden="true"></i>
+        <i class="ti ti-sun theme-icon-dark" aria-hidden="true"></i>
+      </button>
+      <a href="#" class="hide-sm login-link">Log in</a>
+      <a href="#demo" class="btn btn-solid">Book a demo</a>
+      <button type="button" class="nav-toggle icon-square" aria-label="Menu" aria-expanded="false">
+        <i class="ti ti-menu-2"></i>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" hidden>
+    <a href="index.html#platform">Platform</a>
+    <a href="index.html#solutions">Solutions</a>
+    <a href="index.html#integrations">Integrations</a>
+    <a href="index.html#resources">Resources</a>
+    <a href="index.html#company">Company</a>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="cat-hero glow-section">
+  <div class="rp-wash" aria-hidden="true"></div>
+  <div class="rp-layer rp-l3" aria-hidden="true"></div>
+  <div class="rp-layer rp-l2" aria-hidden="true"></div>
+  <div class="rp-layer rp-l1" aria-hidden="true"></div>
+  <div class="rp-panel" aria-hidden="true"></div>
+  <div class="wrap cat-split">
+    <div class="rp-text">
+      <p class="eyebrow">Restaurants</p>
+      <h1 class="h1">Grow delivery<br><span class="accent">on your terms.</span></h1>
+      <p class="lede">Single locations to national chains, pizza to catering, your own drivers, third-party providers, or both. One platform for every restaurant and every delivery model, proven in our case studies.</p>
+      <div class="cta-row">
+        <a href="#demo" class="btn btn-gradient btn-lg">Book a demo</a>
+        <a href="#hybrid" class="btn btn-outline btn-lg">See how it works <i class="ti ti-arrow-right"></i></a>
+      </div>
+      <div class="cat-trust-row">
+        <div class="cat-trust-item">
+          <span style="display:flex;align-items:center;justify-content:center;gap:9px;height:38px">
+            <a href="https://play.google.com/store/apps/details?id=ru.agweb.gr.driver&amp;hl=en" target="_blank" rel="noopener" aria-label="Google Play" style="display:flex;align-items:center"><img src="assets/store-googleplay.png" alt="Google Play" style="width:30px;height:30px;object-fit:contain"></a>
+            <a href="https://apps.apple.com/us/app/cartwheel-driver/id1078612197" target="_blank" rel="noopener" aria-label="App Store" style="display:flex;align-items:center"><img src="assets/store-appstore.webp" alt="App Store" style="width:24px;height:24px;object-fit:contain;border-radius:6px"></a>
+          </span>
+          <span class="cat-trust-top" style="height:18px">4.6 <span class="cat-stars">★★★★★</span> <span style="font-size:12px;font-weight:500">1.5k</span></span>
+          <span class="cat-trust-sub">Top-rated driver app</span>
+        </div>
+        <div class="cat-trust-sep"></div>
+        <div class="cat-trust-item">
+          <span style="width:38px;height:38px;border-radius:50%;overflow:hidden;background:#fff;display:grid;place-items:center"><img src="https://www.surveycto.com/wp-content/uploads/2021/02/soc2-logo-wordpress-featured-image.jpg" alt="SOC 2" style="width:38px;height:38px;object-fit:cover"></span>
+          <span class="cat-trust-top" style="height:18px">SOC 2</span>
+          <span class="cat-trust-sub">Type I compliant</span>
+        </div>
+        <div class="cat-trust-sep"></div>
+        <div class="cat-trust-item">
+          <span style="width:38px;height:38px;border-radius:11px;background:var(--teal-wash);display:grid;place-items:center"><i class="ti ti-heart-handshake" style="color:var(--teal-d);font-size:22px"></i></span>
+          <span class="cat-trust-top" style="height:18px">97%</span>
+          <span class="cat-trust-sub">enterprise retention</span>
+        </div>
+      </div>
+    </div>
+    <div class="rp-art">
+      <div class="rp-photo"><img src="assets/hero-handoff.png" alt="Restaurant staff handing a takeout order to a courier"></div>
+      <img class="rp-phone-img" src="assets/hero-dev-phone-tracking.png" alt="Branded tracking page">
+    </div>
+  </div>
+</section>
+
+<!-- TRUST LOGOS -->
+<section class="trust">
+  <div class="wrap">
+    <p class="trust-label">Trusted by 350+ brands, large and small</p>
+    <div class="logo-marquee">
+      <div class="logo-track">
+        <div style="display:flex;align-items:center;justify-content:center;padding:14px 16px;height:72px;width:170px;flex:none;margin-right:12px"><img src="assets/logo-portillos.svg" alt="Portillo's" style="max-height:30px;max-width:120px"></div>
+        <div style="display:flex;align-items:center;justify-content:center;padding:14px 16px;height:72px;width:170px;flex:none;margin-right:12px"><img src="assets/logo-pfchangs.svg" alt="P.F. Chang's" style="max-height:24px;max-width:130px"></div>
+        <div style="display:flex;align-items:center;justify-content:center;padding:14px 16px;height:72px;width:170px;flex:none;margin-right:12px"><img src="assets/logo-potbelly.svg" alt="Potbelly" style="max-height:48px;max-width:110px"></div>
+        <div style="display:flex;align-items:center;justify-content:center;padding:14px 16px;height:72px;width:170px;flex:none;margin-right:12px"><img src="assets/logo-lou-malnatis.png" alt="Lou Malnati's" style="max-height:38px;max-width:130px"></div>
+        <div style="display:flex;align-items:center;justify-content:center;padding:14px 16px;height:72px;width:170px;flex:none;margin-right:12px"><img src="assets/logo-jasons-deli.svg" alt="Jason's Deli" style="max-height:44px;max-width:110px"></div>
+        <div style="display:flex;align-items:center;justify-content:center;padding:14px 16px;height:72px;width:170px;flex:none;margin-right:12px"><img src="assets/logo-giordanos.png" alt="Giordano's" style="max-height:34px;max-width:120px"></div>
+        <div style="display:flex;align-items:center;justify-content:center;padding:14px 16px;height:72px;width:170px;flex:none;margin-right:12px"><img src="assets/logo-hungry-howies.png" alt="Hungry Howie's" style="max-height:44px;max-width:143px"></div>
+        <div aria-hidden="true" style="display:flex;align-items:center;justify-content:center;padding:14px 16px;height:72px;width:170px;flex:none;margin-right:12px"><img src="assets/logo-portillos.svg" alt="" style="max-height:30px;max-width:120px"></div>
+        <div aria-hidden="true" style="display:flex;align-items:center;justify-content:center;padding:14px 16px;height:72px;width:170px;flex:none;margin-right:12px"><img src="assets/logo-pfchangs.svg" alt="" style="max-height:24px;max-width:130px"></div>
+        <div aria-hidden="true" style="display:flex;align-items:center;justify-content:center;padding:14px 16px;height:72px;width:170px;flex:none;margin-right:12px"><img src="assets/logo-potbelly.svg" alt="" style="max-height:48px;max-width:110px"></div>
+        <div aria-hidden="true" style="display:flex;align-items:center;justify-content:center;padding:14px 16px;height:72px;width:170px;flex:none;margin-right:12px"><img src="assets/logo-lou-malnatis.png" alt="" style="max-height:38px;max-width:130px"></div>
+        <div aria-hidden="true" style="display:flex;align-items:center;justify-content:center;padding:14px 16px;height:72px;width:170px;flex:none;margin-right:12px"><img src="assets/logo-jasons-deli.svg" alt="" style="max-height:44px;max-width:110px"></div>
+        <div aria-hidden="true" style="display:flex;align-items:center;justify-content:center;padding:14px 16px;height:72px;width:170px;flex:none;margin-right:12px"><img src="assets/logo-giordanos.png" alt="" style="max-height:34px;max-width:120px"></div>
+        <div aria-hidden="true" style="display:flex;align-items:center;justify-content:center;padding:14px 16px;height:72px;width:170px;flex:none;margin-right:12px"><img src="assets/logo-hungry-howies.png" alt="" style="max-height:44px;max-width:143px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section id="solutions" class="band-mint">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="eyebrow">Solutions</p>
+      <h2 class="h2">Built around your operation.</h2>
+    </div>
+    <div class="rest-sol-grid">
+      <div class="rest-sol-card">
+        <div class="rest-sol-ico"><i class="ti ti-steering-wheel"></i></div>
+        <h3 class="rest-sol-title">In-house delivery</h3>
+        <p class="rest-sol-desc">Run your own fleet with AI dispatch, route optimization, and branded tracking on every order.</p>
+        <div class="rest-sol-benefit"><i class="ti ti-check"></i><span>Driver app rated 4.6 stars across 1,500 reviews</span></div>
+      </div>
+      <div class="rest-sol-card">
+        <div class="rest-sol-ico"><i class="ti ti-truck-delivery"></i></div>
+        <h3 class="rest-sol-title">Third-party delivery</h3>
+        <p class="rest-sol-desc">One integration connects you to Uber Direct, DoorDash Drive, Grubhub, and 50+ providers.</p>
+        <div class="rest-sol-benefit"><i class="ti ti-check"></i><span>Pre-negotiated rates across the whole network</span></div>
+      </div>
+      <div class="rest-sol-card">
+        <div class="rest-sol-ico"><i class="ti ti-arrows-exchange"></i></div>
+        <h3 class="rest-sol-title">Hybrid Delivery</h3>
+        <p class="rest-sol-desc">Run both at once, with rules deciding which orders go to your drivers and which go out.</p>
+        <div class="rest-sol-benefit"><i class="ti ti-check"></i><span>Keep control where it matters, add backup when you need it</span></div>
+      </div>
+      <div class="rest-sol-card">
+        <div class="rest-sol-ico"><i class="ti ti-chef-hat"></i></div>
+        <h3 class="rest-sol-title">Catering</h3>
+        <p class="rest-sol-desc">Every catering order, from ezCater to your own site, dispatched by the same rules.</p>
+        <div class="rest-sol-benefit"><i class="ti ti-check"></i><span>Live tracking that meets ezCater's standard</span></div>
+      </div>
+    </div>
+    <p class="rest-sol-note">Over $1 billion in restaurant order value powered by Cartwheel</p>
+  </div>
+</section>
+
+<!-- MODEL: WHAT CHANGES WHEN YOU GO HYBRID -->
+<section id="model" class="section-page">
+  <div class="wrap">
+    <div class="section-intro" style="max-width:720px">
+      <p class="eyebrow">Hybrid Delivery</p>
+      <h2 class="h2">Challenges that Hybrid Delivery solves</h2>
+      <p class="section-copy">Cartwheel brings your in-house drivers and third-party providers into one system, with rules that decide who gets each order. Keep control where it matters, add backup when you need it.</p>
+    </div>
+
+    <div class="rest-tabs" id="js-rest-tabs" role="tablist" aria-label="Delivery models">
+      <button type="button" class="rest-tab is-active" role="tab" aria-selected="true" data-tab="0"><i class="ti ti-steering-wheel"></i>In-house delivery, no backup</button>
+      <button type="button" class="rest-tab" role="tab" aria-selected="false" data-tab="1"><i class="ti ti-arrows-exchange"></i>Manual backup</button>
+      <button type="button" class="rest-tab" role="tab" aria-selected="false" data-tab="2"><i class="ti ti-truck-delivery"></i>One third-party provider</button>
+    </div>
+
+    <div class="rest-model-grid">
+      <div>
+        <div class="rest-model-panel is-active" data-tab="0">
+          <div class="rest-model-chip"><i class="ti ti-steering-wheel"></i></div>
+          <p class="eyebrow" style="margin:0">In-house delivery, no backup</p>
+          <h3 class="rest-model-h3">Keep orders flowing when drivers reach capacity.</h3>
+          <p class="rest-model-copy">When your drivers reach capacity, you may have to pause online orders or leave customers waiting. Delays and cancellations frustrate customers, and a bad delivery experience can keep them from ordering again.</p>
+          <div class="cat-check-list">
+            <div class="cat-check-row"><i class="ti ti-check"></i><span>Keep accepting orders when every in-house driver is busy</span></div>
+            <div class="cat-check-row"><i class="ti ti-check"></i><span>Expand delivery capacity without adding headcount</span></div>
+            <div class="cat-check-row"><i class="ti ti-check"></i><span>Protect the customer experience and earn repeat business</span></div>
+          </div>
+        </div>
+        <div class="rest-model-panel" data-tab="1">
+          <div class="rest-model-chip"><i class="ti ti-arrows-exchange"></i></div>
+          <p class="eyebrow" style="margin:0">Manual backup</p>
+          <h3 class="rest-model-h3">Backup that assigns itself.</h3>
+          <p class="rest-model-copy">With manual backup, a dispatcher spends up to 10 minutes deciding where each order goes and requesting a driver. Orders wait, food goes out late, and every decision depends on one dispatcher holding the full board in view.</p>
+          <div class="cat-check-list">
+            <div class="cat-check-row"><i class="ti ti-check"></i><span>Improve delivery speed with AI auto-dispatch</span></div>
+            <div class="cat-check-row"><i class="ti ti-check"></i><span>Save 3 hours of manual labor a day</span></div>
+            <div class="cat-check-row"><i class="ti ti-check"></i><span>Remove manual dispatch errors</span></div>
+            <div class="cat-check-row"><i class="ti ti-check"></i><span>Increase repeat orders</span></div>
+          </div>
+        </div>
+        <div class="rest-model-panel" data-tab="2">
+          <div class="rest-model-chip"><i class="ti ti-truck-delivery"></i></div>
+          <p class="eyebrow" style="margin:0">One third-party provider</p>
+          <h3 class="rest-model-h3">More than one provider to fall back on.</h3>
+          <p class="rest-model-copy">If you rely on one third-party provider, you have no coverage when that provider cannot fulfill an order.</p>
+          <div class="cat-check-list">
+            <div class="cat-check-row"><i class="ti ti-check"></i><span>Access to multiple delivery providers</span></div>
+            <div class="cat-check-row"><i class="ti ti-check"></i><span>Backup when one provider cannot cover an order</span></div>
+            <div class="cat-check-row"><i class="ti ti-check"></i><span>Keep providers accountable with SLA-based auto-refunds</span></div>
+            <div class="cat-check-row"><i class="ti ti-check"></i><span>Dispatch rules based on the cheapest or fastest provider</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="rest-diagram is-active" data-tab="0" role="img" aria-label="New orders fill your five drivers one by one, then the next orders go to third-party providers and delivery stays open">
+          <div class="rest-diagram-label"><span class="rest-diagram-live"></span>Friday, 6:40 pm rush</div>
+          <div class="rest-diagram-row">
+            <div class="rest-diagram-driver"><i class="ti ti-steering-wheel"></i><div><b>5 of 5</b><br><span>in-house drivers busy</span></div></div>
+          </div>
+          <div class="rest-diagram-row" style="justify-content:center">
+            <span class="rest-diagram-chip"><i class="ti ti-receipt"></i>Order 1047</span>
+            <i class="ti ti-arrow-right rest-diagram-arrow"></i>
+            <span class="rest-diagram-chip is-third-party"><i class="ti ti-truck-delivery"></i>Third-party provider</span>
+          </div>
+          <p class="rest-model-copy" style="font-size:14px">Delivery keeps running instead of pausing online orders.</p>
+        </div>
+        <div class="rest-diagram" data-tab="1" role="img" aria-label="Manual backup: a dispatcher juggles four orders and three drivers, deciding by hand which go in-house and which go to a third-party provider">
+          <div class="rest-diagram-label"><span class="rest-diagram-live"></span>Dispatcher board</div>
+          <div class="rest-diagram-row">
+            <div class="rest-diagram-driver"><i class="ti ti-user"></i><div><b>Up to 10 min</b><br><span>per order, decided by hand</span></div></div>
+          </div>
+          <div class="rest-diagram-row" style="justify-content:center;flex-wrap:wrap">
+            <span class="rest-diagram-chip"><i class="ti ti-receipt"></i>1042</span>
+            <span class="rest-diagram-chip"><i class="ti ti-receipt"></i>1043</span>
+            <span class="rest-diagram-chip is-third-party"><i class="ti ti-receipt"></i>1045</span>
+            <span class="rest-diagram-chip is-third-party"><i class="ti ti-receipt"></i>1046</span>
+          </div>
+          <p class="rest-model-copy" style="font-size:14px">With Hybrid Delivery, the same four orders are assigned in under a second.</p>
+        </div>
+        <div class="rest-diagram" data-tab="2" role="img" aria-label="Fleet A cannot cover the order, fleets B, C and D quote and fleet B is assigned">
+          <div class="rest-diagram-label"><span class="rest-diagram-live"></span>Provider coverage</div>
+          <div class="rest-diagram-row" style="justify-content:center;flex-wrap:wrap">
+            <span class="rest-diagram-chip is-third-party"><i class="ti ti-truck-off"></i>Provider A — no coverage</span>
+          </div>
+          <div class="rest-diagram-row" style="justify-content:center;flex-wrap:wrap">
+            <span class="rest-diagram-chip"><i class="ti ti-truck-delivery"></i>Provider B — assigned</span>
+            <span class="rest-diagram-chip is-third-party"><i class="ti ti-truck-delivery"></i>Provider C</span>
+            <span class="rest-diagram-chip is-third-party"><i class="ti ti-truck-delivery"></i>Provider D</span>
+          </div>
+          <p class="rest-model-copy" style="font-size:14px">The order still gets covered when every provider quotes at once.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HYBRID DELIVERY ENGINE -->
+<section id="hybrid" class="cat-engine-section">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="eyebrow eyebrow-onbright">The Hybrid Delivery engine</p>
+      <h2 class="h2 h2-ondark">Set the rules once. Cartwheel routes every order.</h2>
+    </div>
+    <div class="cat-engine-sources" id="js-engine-sources">
+      <div class="cat-engine-box is-active"><i class="ti ti-cash-register"></i><span>POS</span></div>
+      <div class="cat-engine-box"><i class="ti ti-device-laptop"></i><span>Online ordering</span></div>
+      <div class="cat-engine-box"><i class="ti ti-building-store"></i><span>Catering marketplaces</span></div>
+      <div class="cat-engine-box"><i class="ti ti-phone"></i><span>Phone</span></div>
+    </div>
+    <div class="cat-engine-connector"><i class="ti ti-arrow-down"></i></div>
+    <div class="cat-engine-hub"><img src="assets/cartwheel-mark.svg" alt="" aria-hidden="true" style="width:28px;height:28px;filter:brightness(0) invert(1)"></div>
+    <p class="cat-engine-hub-note">Rule-based dispatch engine</p>
+    <div class="cat-engine-connector"><i class="ti ti-arrow-down"></i></div>
+    <div class="cat-engine-fleets" id="js-engine-fleets">
+      <div class="cat-engine-fleet is-active">
+        <p class="cat-engine-fleet-title">In-house fleet</p>
+        <p>Your drivers + Cartwheel tools</p>
+      </div>
+      <div class="cat-engine-fleet">
+        <p class="cat-engine-fleet-title">Third-party providers</p>
+        <div class="cat-engine-fleet-logos">
+          <img src="assets/int-uberdirect.webp" alt="Uber Direct">
+          <img src="assets/int-doordash.png" alt="DoorDash Drive">
+          <img src="assets/int-grubhub.webp" alt="Grubhub">
+          <img src="assets/int-skipcart-white.png" alt="Skipcart">
+          <img src="assets/dp-jetgo-white.svg" alt="JetGo">
+        </div>
+      </div>
+      <div class="cat-engine-fleet">
+        <p class="cat-engine-fleet-title">Catering fleet</p>
+        <p>Dozens of catering-focused providers</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px"><a href="https://trycartwheel.com/product/" class="btn btn-outline-dark">Read more about Hybrid Delivery <i class="ti ti-arrow-right"></i></a></div>
+  </div>
+</section>
+
+<!-- CATERING TEASER -->
+<section class="section-page">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="eyebrow">Catering</p>
+      <h2 class="h2">One place for every catering order.</h2>
+      <p class="section-copy">Catering orders are your highest-value deliveries and the most expensive to get wrong. Orders from your own channels and from ezCater or other marketplaces land on one board, dispatched by the same rules.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-ico"><i class="ti ti-layout-grid"></i></div>
+        <h3 class="feat-title">Every order on one board</h3>
+        <p class="feat-desc">From ezCater, Olo, and Toast Catering, alongside your own site, app, and phone orders.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ico"><i class="ti ti-map-pin"></i></div>
+        <h3 class="feat-title">Tracking that meets ezCater's standard</h3>
+        <p class="feat-desc">Self-delivered orders are tracked automatically from pickup to on-site setup.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ico"><i class="ti ti-adjustments"></i></div>
+        <h3 class="feat-title">Dispatch by the same rules</h3>
+        <p class="feat-desc">Catering orders route alongside on-demand orders, using the rules you set.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px"><a href="catering.html" class="btn btn-solid">Explore catering <i class="ti ti-arrow-right"></i></a></div>
+  </div>
+</section>
+
+<!-- CATERING EBOOK -->
+<section class="rest-eb-strip">
+  <div class="wrap rest-eb-grid">
+    <div>
+      <p class="rest-eb-kicker">Free eBook</p>
+      <h2 class="rest-eb-title">Top 5 trends for growing your catering delivery business in 2026</h2>
+      <a href="https://trycartwheel.com/catering-delivery-ebook/" target="_blank" rel="noopener" class="btn btn-gradient">Get the eBook <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <a href="https://trycartwheel.com/catering-delivery-ebook/" target="_blank" rel="noopener" class="rest-eb-photo" aria-label="Open the catering delivery eBook">
+      <img src="assets/ebook-catering-photo.png" alt="A smiling caterer holding boxes of desserts in front of a delivery van">
+    </a>
+  </div>
+</section>
+
+<!-- THIRD-PARTY DELIVERY -->
+<section class="section-page">
+  <div class="wrap cat-split">
+    <div>
+      <p class="eyebrow">Third-party delivery</p>
+      <h2 class="h2">Run third-party delivery without handing over the customer.</h2>
+      <p class="section-copy" style="margin-bottom:20px">One integration connects you to Uber Direct, DoorDash Drive, Grubhub, Skipcart, and 50+ delivery providers.</p>
+      <div class="cat-check-list">
+        <div class="cat-check-row"><i class="ti ti-route"></i><span><b>Dispatch by your rules:</b> AI dispatch routes each order to the best provider based on the rules you set.</span></div>
+        <div class="cat-check-row"><i class="ti ti-tag"></i><span><b>Pre-negotiated rates:</b> one contract covers the whole provider network.</span></div>
+        <div class="cat-check-row"><i class="ti ti-device-mobile-message"></i><span><b>Your brand on every order:</b> branded tracking, promotions, and a review prompt.</span></div>
+        <div class="cat-check-row"><i class="ti ti-receipt-refund"></i><span><b>Automatic refunds:</b> claims filed when a provider is late or cancels.</span></div>
+      </div>
+    </div>
+    <div class="rest-rate-card">
+      <div class="rest-rate-inner">
+        <div class="rest-rate-head"><span><span class="rest-live-dot"></span>Rate engine</span><span class="rest-rate-tag">50+ PROVIDERS</span></div>
+        <div class="rest-rate-grid">
+          <div class="rest-rate-col"><img src="assets/int-doordash.png" alt="DoorDash Drive"><span class="rest-rate-from">from</span><span class="rest-rate-price">$6.99</span></div>
+          <div class="rest-rate-col"><img src="assets/int-uberdirect.webp" alt="Uber Direct"><span class="rest-rate-from">from</span><span class="rest-rate-price">$5.10</span></div>
+          <div class="rest-rate-col"><img src="assets/int-grubhub.webp" alt="Grubhub"><span class="rest-rate-from">from</span><span class="rest-rate-price">$4.60</span></div>
+        </div>
+        <p class="rest-rate-note">Pre-negotiated across Uber Direct, DoorDash Drive, Grubhub, and local providers.</p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <a href="https://trycartwheel.com/case-studies/mandys/" target="_blank" rel="noopener" class="rest-case">
+      <span class="rest-case-photo"><img src="assets/cs/mandys-food.jpg" alt=""><img src="assets/cs/logo-mandys-w.png" alt="Mandy's" class="rest-case-logo"></span>
+      <span class="rest-case-body">
+        <span class="rest-case-kicker">Case study</span>
+        <span class="rest-case-title">How Mandy's automated third-party delivery with Cartwheel, Toast, and Uber Direct.</span>
+        <span class="rest-case-stats"><span><b>490%</b><span>ROI</span></span><span><b>$2,300</b><span>saved per month</span></span></span>
+        <span class="rest-case-link">Read the case study <i class="ti ti-arrow-right"></i></span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- ECONOMICS -->
+<section class="band-mint">
+  <div class="wrap">
+    <div class="section-intro" style="max-width:760px">
+      <p class="eyebrow">Economics</p>
+      <h2 class="h2">Delivery you control is delivery you can price.</h2>
+    </div>
+    <div class="rest-eco" id="js-rest-eco">
+      <div>
+        <div class="rest-eco-row is-open">
+          <h3>Up to 27% lower rates</h3>
+          <p>Pre-negotiated rates across Uber Direct, DoorDash Drive, Grubhub, and 50+ delivery providers, lower than contracting direct.</p>
+        </div>
+        <div class="rest-eco-row">
+          <h3>Best option, every order</h3>
+          <p>With national and local providers quoting every overflow order, it goes to whichever is cheapest at that moment. No single provider sets your price.</p>
+        </div>
+        <div class="rest-eco-row">
+          <h3>Automatic refund recovery</h3>
+          <p>When a third-party provider is late or cancels, Cartwheel files the refund automatically against your refund matrix, recovering $0.29 per third-party order on average.</p>
+        </div>
+        <div class="rest-eco-row">
+          <h3>Extended radius</h3>
+          <p>Deliver further without hiring. Orders beyond your in-house radius route to third-party providers, so you can accept orders you previously had to decline.</p>
+        </div>
+      </div>
+      <div class="rest-rate-card">
+        <div class="rest-rate-inner">
+          <div class="rest-rate-head"><span><span class="rest-live-dot"></span>Rate engine</span><span class="rest-rate-tag">50+ PROVIDERS</span></div>
+          <div class="rest-rate-grid">
+            <div class="rest-rate-col"><img src="assets/int-doordash.png" alt="DoorDash Drive"><span class="rest-rate-from">from</span><span class="rest-rate-price">$6.99</span></div>
+            <div class="rest-rate-col"><img src="assets/int-uberdirect.webp" alt="Uber Direct"><span class="rest-rate-from">from</span><span class="rest-rate-price">$5.10</span></div>
+            <div class="rest-rate-col"><img src="assets/int-grubhub.webp" alt="Grubhub"><span class="rest-rate-from">from</span><span class="rest-rate-price">$4.60</span></div>
+          </div>
+          <p class="rest-rate-note">Pre-negotiated across Uber Direct, DoorDash Drive, Grubhub, and local providers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IN-HOUSE DELIVERY -->
+<section class="section-page">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="eyebrow">In-house delivery</p>
+      <h2 class="h2">Everything your own fleet needs.</h2>
+      <p class="section-copy">Your drivers, dispatchers, and managers work from one system, from the first order of the day to the last report.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-ico"><i class="ti ti-steering-wheel"></i></div>
+        <h3 class="feat-title">Dispatch and driver tools</h3>
+        <div class="cat-check-list" style="margin:12px 0 0;gap:7px">
+          <div class="cat-check-row" style="font-size:14px"><i class="ti ti-check"></i><span>AI auto-dispatch and batching</span></div>
+          <div class="cat-check-row" style="font-size:14px"><i class="ti ti-check"></i><span>Route optimization</span></div>
+          <div class="cat-check-row" style="font-size:14px"><i class="ti ti-check"></i><span>Order checklists and proof of delivery</span></div>
+          <div class="cat-check-row" style="font-size:14px"><i class="ti ti-check"></i><span>ID and age verification for alcohol</span></div>
+          <div class="cat-check-row" style="font-size:14px"><i class="ti ti-check"></i><span>Driver app rated 4.6 stars across 1,500 reviews</span></div>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ico"><i class="ti ti-speakerphone"></i></div>
+        <h3 class="feat-title">Marketing suite</h3>
+        <div class="cat-check-list" style="margin:12px 0 0;gap:7px">
+          <div class="cat-check-row" style="font-size:14px"><i class="ti ti-check"></i><span>Branded live tracking link</span></div>
+          <div class="cat-check-row" style="font-size:14px"><i class="ti ti-check"></i><span>Promotional banners</span></div>
+          <div class="cat-check-row" style="font-size:14px"><i class="ti ti-check"></i><span>Review collection and online review prompts</span></div>
+          <div class="cat-check-row" style="font-size:14px"><i class="ti ti-check"></i><span>Integrations with third-party guest feedback platforms</span></div>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ico"><i class="ti ti-chart-bar"></i></div>
+        <h3 class="feat-title">Reports and analytics</h3>
+        <div class="cat-check-list" style="margin:12px 0 0;gap:7px">
+          <div class="cat-check-row" style="font-size:14px"><i class="ti ti-check"></i><span>KPIs for all deliveries</span></div>
+          <div class="cat-check-row" style="font-size:14px"><i class="ti ti-check"></i><span>Shift hours, deliveries, and miles driven</span></div>
+          <div class="cat-check-row" style="font-size:14px"><i class="ti ti-check"></i><span>Customer ratings of drivers</span></div>
+          <div class="cat-check-row" style="font-size:14px"><i class="ti ti-check"></i><span>Store, regional, and HQ views</span></div>
+          <div class="cat-check-row" style="font-size:14px"><i class="ti ti-check"></i><span>Refund status for third-party providers</span></div>
+        </div>
+      </div>
+    </div>
+    <a href="https://trycartwheel.com/case-studies/jasons-deli-case-study/" target="_blank" rel="noopener" class="rest-case">
+      <span class="rest-case-photo"><img src="assets/cs/jasons-deli-food-v2.jpg" alt=""><img src="assets/cs/logo-jasons-deli-w.png" alt="Jason's Deli" class="rest-case-logo"></span>
+      <span class="rest-case-body">
+        <span class="rest-case-kicker">Case study</span>
+        <span class="rest-case-title">How Jason's Deli runs catering delivery from ezCater, Olo, and its own channels across corporate and franchise locations.</span>
+        <span class="rest-case-stats"><span><b>242</b><span>locations, corporate and franchise</span></span><span><b>4.7+</b><span>driver rating</span></span></span>
+        <span class="rest-case-link">Read the case study <i class="ti ti-arrow-right"></i></span>
+      </span>
+    </a>
+    <div style="text-align:center;margin-top:24px"><a href="https://trycartwheel.com/product/" class="cat-callout-link">Explore dispatch and driver tools <i class="ti ti-arrow-right"></i></a></div>
+  </div>
+</section>
+
+<!-- ENTERPRISE -->
+<section class="section-page">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="eyebrow">Enterprise</p>
+      <h2 class="h2">Enterprise-grade, from pilot to full rollout.</h2>
+      <p class="section-copy">One team, one integration, one delivery standard across every store, corporate and franchise alike.</p>
+    </div>
+    <div class="ent-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:clamp(24px,3.5vw,48px);align-items:stretch">
+      <div class="ent-feats" style="display:flex;flex-direction:column;gap:12px">
+        <div class="feat-card" style="display:flex;gap:14px;align-items:flex-start;padding:20px 22px">
+          <span class="feat-ico" style="flex:none;margin-bottom:0"><i class="ti ti-hand-finger"></i></span>
+          <div><h3 class="feat-title">White-glove implementation</h3><p class="feat-desc">A dedicated onboarding team plans the rollout location by location.</p></div>
+        </div>
+        <div class="feat-card" style="display:flex;gap:14px;align-items:flex-start;padding:20px 22px">
+          <span class="feat-ico" style="flex:none;margin-bottom:0"><i class="ti ti-rocket"></i></span>
+          <div><h3 class="feat-title">Scale in weeks, not quarters</h3><p class="feat-desc">Enterprise brands take hundreds of locations live on Cartwheel in a matter of weeks.</p></div>
+        </div>
+        <div class="feat-card" style="display:flex;gap:14px;align-items:flex-start;padding:20px 22px">
+          <span class="feat-ico" style="flex:none;margin-bottom:0"><i class="ti ti-api"></i></span>
+          <div><h3 class="feat-title">API-first architecture</h3><p class="feat-desc">Connects to your POS, online ordering, and loyalty stack, and to custom systems through the API.</p></div>
+        </div>
+        <div class="feat-card" style="display:flex;gap:14px;align-items:flex-start;padding:20px 22px">
+          <span class="feat-ico" style="flex:none;margin-bottom:0"><i class="ti ti-headset"></i></span>
+          <div><h3 class="feat-title">24/7 live support</h3><p class="feat-desc">Real people around the clock, plus dedicated account management for enterprise partners.</p></div>
+        </div>
+      </div>
+      <div class="rest-ent-proof">
+        <p class="rest-ent-tag"><span></span>Proof at scale</p>
+        <div class="rest-ent-row"><span class="rest-ent-soc"><img src="https://www.surveycto.com/wp-content/uploads/2021/02/soc2-logo-wordpress-featured-image.jpg" alt="SOC 2"></span><div><div class="rest-ent-num">SOC 2</div><div class="rest-ent-label">Type I compliant</div></div></div>
+        <div class="rest-ent-row"><span class="rest-ent-ico"><i class="ti ti-activity-heartbeat"></i></span><div><div class="rest-ent-num">99.9%</div><div class="rest-ent-label">platform uptime</div></div></div>
+        <div class="rest-ent-row" style="border-bottom:1px solid rgba(255,255,255,.14)"><span class="rest-ent-ico"><i class="ti ti-heart-handshake"></i></span><div><div class="rest-ent-num">97%</div><div class="rest-ent-label">enterprise retention</div></div></div>
+        <div class="rest-ent-flags">
+          <div class="flags">
+            <img src="assets/flag-us-n.png" alt="United States">
+            <img src="assets/flag-ca-n.png" alt="Canada">
+            <img src="assets/flag-uk-n.png" alt="United Kingdom">
+            <img src="assets/flag-ie-n.png" alt="Ireland">
+            <img src="assets/flag-au-n.png" alt="Australia">
+            <img src="assets/flag-pr-n.png" alt="Puerto Rico">
+          </div>
+          <p>Operating in the United States, Puerto Rico, Canada, the United Kingdom, Ireland, and Australia.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section class="band-mint">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="eyebrow">Integrations</p>
+      <h2 class="h2">Plug into what you already run.</h2>
+    </div>
+    <div class="cat-int-groups">
+      <div>
+        <p class="cat-int-group-title">POS and ordering</p>
+        <div class="cat-int-chips">
+          <span class="cat-int-chip"><img src="assets/int-toast.svg" alt="">Toast</span>
+          <span class="cat-int-chip"><img src="assets/int-olo.svg" alt="">Olo</span>
+          <span class="cat-int-chip"><img src="assets/int-par.png" alt="">PAR</span>
+          <span class="cat-int-chip"><img src="assets/int-qu.png" alt="">Qu</span>
+          <span class="cat-int-chip"><img src="assets/int-onosys.svg" alt="">Onosys</span>
+          <span class="cat-int-chip"><img src="assets/int-streamorders.svg" alt="">Stream</span>
+        </div>
+      </div>
+      <div>
+        <p class="cat-int-group-title">Delivery providers</p>
+        <div class="cat-int-chips">
+          <span class="cat-int-chip"><img src="assets/int-uberdirect.webp" alt="">Uber Direct</span>
+          <span class="cat-int-chip"><img src="assets/int-doordash.png" alt="">DoorDash Drive</span>
+          <span class="cat-int-chip"><img src="assets/int-grubhub.webp" alt="">Grubhub</span>
+          <span class="cat-int-chip"><img src="assets/int-skipcart-blue.png" alt="">Skipcart</span>
+          <span class="cat-int-chip">Dozens of catering providers</span>
+        </div>
+      </div>
+      <div>
+        <p class="cat-int-group-title">Catering</p>
+        <div class="cat-int-chips">
+          <span class="cat-int-chip"><img src="assets/int-ezcater.svg" alt="">ezCater</span>
+          <span class="cat-int-chip"><img src="assets/int-olo.svg" alt="">Olo Catering</span>
+          <span class="cat-int-chip"><img src="assets/int-toast.svg" alt="">Toast Catering &amp; events</span>
+          <span class="cat-int-chip"><img src="assets/int-monkeymedia.svg" alt="">Monkey Media</span>
+        </div>
+      </div>
+    </div>
+    <div class="cat-int-more"><a href="https://trycartwheel.com/integrations/" class="cat-callout-link">See all integrations <i class="ti ti-arrow-right"></i></a></div>
+  </div>
+</section>
+
+<!-- PIZZA EBOOK -->
+<section class="rest-eb-strip rest-eb-dark">
+  <div class="wrap rest-eb-grid">
+    <div>
+      <p class="rest-eb-kicker">Free eBook · Pizza delivery</p>
+      <h2 class="rest-eb-title">How to increase delivery revenue for your pizza restaurant: 5 main trends</h2>
+      <a href="https://trycartwheel.com/pizza-delivery-ebook/" target="_blank" rel="noopener" class="btn btn-gradient">Get the eBook <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <a href="https://trycartwheel.com/pizza-delivery-ebook/" target="_blank" rel="noopener" class="rest-eb-photo" aria-label="Open the pizza delivery eBook">
+      <img src="assets/ebook-pizza-photo.png" alt="A courier handing pizza boxes to a smiling customer">
+    </a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section-page">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="eyebrow">What our customers say</p>
+      <h2 class="h2">Trusted by the brands that move the most food.</h2>
+    </div>
+    <div class="cat-tcard-wrap">
+      <button type="button" class="icon-circle cat-tnav rest-tprev" aria-label="Previous"><i class="ti ti-chevron-left"></i></button>
+      <button type="button" class="icon-circle cat-tnav rest-tnext" aria-label="Next"><i class="ti ti-chevron-right"></i></button>
+      <div class="cat-tcard" id="js-tcard-rest"></div>
+    </div>
+    <div class="cat-tdots" id="js-tdots-rest"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-page">
+  <div class="wrap cat-faq">
+    <div>
+      <p class="eyebrow">FAQ</p>
+      <h2 class="h2">Frequently asked questions</h2>
+    </div>
+    <div id="js-faq">
+      <div class="cat-faq-item is-open">
+        <div class="cat-faq-q"><span>What is Hybrid Delivery?</span><i class="ti ti-minus"></i></div>
+        <p class="cat-faq-a">Hybrid Delivery means running your own drivers and third-party providers at the same time, with rules deciding which orders go where. Your drivers take the orders where control and margin matter. Third-party providers absorb the rest.</p>
+      </div>
+      <div class="cat-faq-item">
+        <div class="cat-faq-q"><span>Is Cartwheel a delivery service like DoorDash?</span><i class="ti ti-plus"></i></div>
+        <p class="cat-faq-a">No. Cartwheel does not employ drivers or deliver orders. It is the software that runs your delivery operation, including your own drivers and third-party providers such as Uber Direct, DoorDash Drive, and Grubhub.</p>
+      </div>
+      <div class="cat-faq-item">
+        <div class="cat-faq-q"><span>Which rules can I set?</span><i class="ti ti-plus"></i></div>
+        <p class="cat-faq-a">Time of day, order size, driver availability, order throttling, delivery radius and zones, and pickup ETA comparison. Rules work together, so one policy covers every shift and location.</p>
+      </div>
+      <div class="cat-faq-item">
+        <div class="cat-faq-q"><span>What does Cartwheel integrate with?</span><i class="ti ti-plus"></i></div>
+        <p class="cat-faq-a">POS and ordering systems including Toast, PAR, Olo, Qu, and ChowNow; catering platforms including ezCater; and delivery providers including Uber Direct, DoorDash Drive, Grubhub, Skipcart, and 50+ others.</p>
+      </div>
+      <div class="cat-faq-item">
+        <div class="cat-faq-q"><span>How much does Cartwheel cost?</span><i class="ti ti-plus"></i></div>
+        <p class="cat-faq-a">Pricing starts at $65 per location per month in the US, with volume-based and enterprise pricing available.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK A DEMO -->
+<section id="demo" class="cat-lead">
+  <div class="wrap cat-lead-grid">
+    <div class="cat-lead-copy">
+      <p class="eyebrow eyebrow-onbright">Book a demo</p>
+      <h2 class="h2 h2-ondark">See Cartwheel in action.</h2>
+      <p>Talk to a Cartwheel expert about your delivery volume, your stack, and where orders are slipping through the cracks today.</p>
+    </div>
+    <form class="cat-lead-form" onsubmit="return false">
+      <label class="cat-field-label" for="rest-role">What best describes you?</label>
+      <select class="cat-field" id="rest-role">
+        <option>Select one</option>
+        <option>Restaurant operator</option>
+        <option>Catering manager</option>
+        <option>Franchise group</option>
+        <option>Delivery / DSP partner</option>
+        <option>Other</option>
+      </select>
+      <label class="cat-field-label" for="rest-name">Full name</label>
+      <input class="cat-field" id="rest-name" type="text" placeholder="Full name">
+      <label class="cat-field-label" for="rest-email">Work email</label>
+      <input class="cat-field" id="rest-email" type="email" placeholder="Work email">
+      <label class="cat-field-label" for="rest-phone">Phone number</label>
+      <input class="cat-field" id="rest-phone" type="tel" placeholder="Phone number">
+      <label class="cat-field-check"><input type="checkbox">I'd like to receive event invitations, industry insights and updates from Cartwheel.</label>
+      <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center">Proceed</button>
+      <p class="cat-lead-note">By filling in this form, you agree to be contacted by Cartwheel. Read our <a href="#">Privacy Policy</a>.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer id="company" class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/cartwheel-logo-white.svg" alt="Cartwheel" class="footer-logo">
+        <p class="footer-blurb">The hybrid delivery platform for restaurant chains. Built by operators, in Los Angeles.</p>
+      </div>
+      <div class="footer-col">
+        <h5 class="footer-heading">Platform</h5>
+        <a href="index.html#platform">Hybrid Delivery</a>
+        <a href="index.html#platform">Branded tracking</a>
+        <a href="index.html#platform">Driver suite</a>
+        <a href="index.html#platform">DSP network</a>
+        <a href="index.html#platform">Analytics</a>
+      </div>
+      <div class="footer-col">
+        <h5 class="footer-heading">Solutions</h5>
+        <a href="index.html#solutions">Pizza</a>
+        <a href="index.html#solutions">Alcohol</a>
+        <a href="catering.html">Catering</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="index.html#solutions">Couriers &amp; DSPs</a>
+      </div>
+      <div class="footer-col">
+        <h5 class="footer-heading">Resources</h5>
+        <a href="index.html#resources">Case studies</a>
+        <a href="index.html#resources">Blog</a>
+        <a href="index.html#resources">eBooks</a>
+        <a href="index.html#resources">Newsroom</a>
+        <a href="index.html#resources">Refer a brand</a>
+      </div>
+      <div class="footer-col footer-col-company">
+        <svg viewBox="0 0 52 63" aria-hidden="true" class="footer-watermark"><path d="M26.6264 0.0154913C12.0089 -0.490191 0 11.4497 0 26.2518C0 29.4191 0.552198 32.4597 1.56308 35.2743C2.42483 37.6835 3.62597 39.9249 5.09635 41.9394C5.78236 42.8702 6.52481 43.7541 7.31965 44.5854L7.75818 45.0327C8.38777 45.6626 18.9021 56.3945 23.5519 61.1397C24.7578 62.3706 26.7111 62.369 27.9178 61.1381L41.3044 47.4838C41.3044 47.4838 42.8981 45.8426 43.7083 45.0319L44.1468 44.5846C44.9409 43.7533 45.6841 42.8694 46.3701 41.9386C47.8453 39.9241 49.0416 37.6826 49.9034 35.2735C51.1231 31.8776 51.6745 28.152 51.3947 24.2726C50.4346 11.0032 39.6639 0.466905 26.6264 0.0154913ZM25.7316 52.6558L15.4116 42.1285L25.7316 31.6013L36.0525 42.1285L25.7316 52.6558ZM41.04 36.5044L27.9154 23.1182C26.7095 21.8881 24.7546 21.8881 23.5486 23.1182L10.4289 36.4994C8.53126 33.5583 7.42686 30.0341 7.42686 26.2509C7.42686 15.491 16.3418 6.8607 27.044 7.6221C36.2298 8.27579 43.5995 15.9876 44.0211 25.3695C44.2073 29.4914 43.0844 33.3371 41.04 36.5044Z"></path></svg>
+        <div class="footer-col-inner">
+          <h5 class="footer-heading">Company</h5>
+          <a href="index.html#company">About</a>
+          <a href="index.html#company">Partners</a>
+          <a href="index.html#company">Careers</a>
+          <a href="index.html#company">Contact</a>
+          <a href="index.html#company">Trust center</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>As featured in Nation's Restaurant News · QSR · Food On Demand · Fortune</span>
+      <div class="footer-social">
+        <a href="#" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+        <a href="#" aria-label="X"><i class="ti ti-brand-x"></i></a>
+        <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
