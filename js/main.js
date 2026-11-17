@@ -651,6 +651,44 @@
     renderRestT();
   }
 
+  /* ===== Pizza page: testimonial carousel ===== */
+  var pizzaTestimonials = [
+    { logo: 'assets/logo-giordanos.png', initials: 'NS', quote: '“Chicago’s love for pizza and football runs deep, and peak demand periods like Super Bowl weekend put real pressure on our operations. Cartwheel gives our store teams the control they need to make smart delivery decisions in real time while ensuring that every delivery feels like Giordano’s, not a generic transaction.”', name: 'Nick Scarpino', role: 'CEO, Giordano’s' },
+    { logo: 'assets/logo-hungry-howies.png', initials: 'MS', quote: '“We continue to see real value in maintaining a direct relationship with our guests and investing in our in-house delivery capabilities. Third-party delivery provides important additional reach and flexibility, and Cartwheel helps us bring these approaches together while maintaining a consistent guest experience as we modernize our delivery operations.”', name: 'Moe Shrikian', role: 'Executive Vice President and General Counsel, Hungry Howie’s' },
+    { logo: 'assets/logo-mr-jims.png', initials: 'BH', quote: '“Using Cartwheel and Uber Direct has significantly reduced our delivery times, increased customer satisfaction, and boosted sales. The integration is seamless. Our drivers handle local orders, and Uber Direct takes care of overflow. With real-time tracking for both, we have complete visibility, which has elevated our service across the board.”', name: 'Bryce Hamm', role: 'Franchisee, MrJim’s Pizza' }
+  ];
+  var pizzaTcard = document.getElementById('js-tcard-pizza');
+  var pizzaTdotsEl = document.getElementById('js-tdots-pizza');
+  if (pizzaTcard && pizzaTdotsEl) {
+    var pzi = 0;
+    var pizzaTdots = pizzaTestimonials.map(function (_, n) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'case-dot';
+      dot.setAttribute('aria-label', 'Testimonial ' + (n + 1));
+      dot.addEventListener('click', function () { pzi = n; renderPizzaT(); });
+      pizzaTdotsEl.appendChild(dot);
+      return dot;
+    });
+    function renderPizzaT() {
+      var t = pizzaTestimonials[pzi];
+      pizzaTcard.innerHTML =
+        (t.logo ? '<img src="' + t.logo + '" alt="" class="cat-tcard-logo">' : '') +
+        '<div class="cat-tcard-mark">&rdquo;</div>' +
+        '<p class="cat-tcard-quote">' + t.quote + '</p>' +
+        '<div class="cat-tcard-attr">' +
+          '<div class="cat-tcard-avatar">' + t.initials + '</div>' +
+          '<div><div class="cat-tcard-name">' + t.name + '</div><div class="cat-tcard-role">' + t.role + '</div></div>' +
+        '</div>';
+      pizzaTdots.forEach(function (d, n) { d.classList.toggle('active', n === pzi); });
+    }
+    var pizzaTprev = document.querySelector('.pizza-tprev');
+    var pizzaTnext = document.querySelector('.pizza-tnext');
+    if (pizzaTprev) pizzaTprev.addEventListener('click', function () { pzi = (pzi - 1 + pizzaTestimonials.length) % pizzaTestimonials.length; renderPizzaT(); });
+    if (pizzaTnext) pizzaTnext.addEventListener('click', function () { pzi = (pzi + 1) % pizzaTestimonials.length; renderPizzaT(); });
+    renderPizzaT();
+  }
+
   /* ===== Toast page: testimonial carousel ===== */
   var toastTestimonials = [
     { logo: 'assets/logo-portillos.svg', initials: 'MO', quote: '“With more than 60 Portillo’s locations nationwide and the highest average unit sales volumes in the fast-casual industry, we have a lot of deliveries to manage. It’s important that our brand is well-represented. Our experience with Cartwheel has been so positive that we invested in the company so they can further develop services with brands in mind.”', name: 'Michael Osanloo', role: 'CEO, Portillo’s' },
@@ -751,6 +789,27 @@
           p.classList.toggle('is-active', p.getAttribute('data-panel') === target);
         });
         if (dtSaveEl) dtSaveEl.textContent = dtSaveWords[+target] || dtSaveWords[0];
+      });
+    });
+  }
+
+  /* ===== Pizza page: Hybrid Delivery model tabs (same pattern as #js-dt-third) ===== */
+  var pizzaThird = document.getElementById('js-pizza-third');
+  if (pizzaThird) {
+    var pizzaTabs = pizzaThird.querySelectorAll('.dt-third-tab');
+    pizzaTabs.forEach(function (tab) {
+      var btn = tab.querySelector('.dt-third-tab-btn');
+      btn.addEventListener('click', function () {
+        var target = tab.getAttribute('data-tab');
+        pizzaTabs.forEach(function (t) {
+          var active = t === tab;
+          t.classList.toggle('is-active', active);
+          var chev = t.querySelector('.dt-third-tab-btn i');
+          chev.className = 'ti ' + (active ? 'ti-chevron-down' : 'ti-chevron-right');
+        });
+        pizzaThird.querySelectorAll('.dt-third-panel').forEach(function (p) {
+          p.classList.toggle('is-active', p.getAttribute('data-panel') === target);
+        });
       });
     });
   }
