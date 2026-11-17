@@ -354,7 +354,7 @@
 </section>
 
 <!-- DISPATCH RULES -->
-<section class="section-page">
+<section class="section-grad-gray">
   <div class="wrap">
     <div class="section-intro">
       <p class="eyebrow">Dispatch rules</p>
@@ -408,7 +408,7 @@
 </section>
 
 <!-- VISIBILITY -->
-<section class="band-mint">
+<section class="section-grad-gray">
   <div class="wrap">
     <div class="section-intro">
       <p class="eyebrow">Full visibility on every order</p>
@@ -461,7 +461,7 @@
 </section>
 
 <!-- CATERING SPOTLIGHT -->
-<section class="section-page">
+<section class="section-grad-gray">
   <div class="wrap">
     <div class="section-intro">
       <p class="eyebrow">Catering</p>
@@ -474,14 +474,15 @@
         <div class="cat-check-row"><i class="ti ti-checklist"></i><span><b>Pre-delivery checklists.</b> Photo and signature capture confirm the right trays made it out before the driver leaves.</span></div>
         <div class="cat-check-row"><i class="ti ti-map-pin"></i><span><b>20-mile radius.</b> Access to DoorDash Large Order Fulfillment plus dozens of catering-specific providers, with a 97% average on-time rate.</span></div>
       </div>
-      <div style="position:relative;padding:clamp(22px,2.6vw,28px);border-radius:18px;background:var(--panel);border:1px solid var(--border)">
+      <div style="position:relative;padding:clamp(22px,2.6vw,28px);border-radius:18px;background:var(--grad-teal);border:1px solid var(--border)">
         <blockquote style="position:relative;font-family:var(--display);font-weight:500;font-size:clamp(16px,1.7vw,19px);line-height:1.45;letter-spacing:-.01em;color:var(--head)">Orders come in from ezCater, our own site, and other marketplaces simultaneously. A single platform to manage drivers and track orders is what makes it possible to grow catering.</blockquote>
         <div style="display:flex;align-items:center;gap:12px;margin-top:16px">
-          <span style="width:44px;height:44px;border-radius:50%;background:var(--teal-wash);display:grid;place-items:center;flex:none"><i class="ti ti-building-store" style="color:var(--teal-d);font-size:20px"></i></span>
+          <img src="assets/gracie-prasanson.jpg" alt="Gracie Prasanson" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none">
           <div style="display:flex;flex-direction:column">
             <span style="font-size:15px;font-weight:600;color:var(--head)">Gracie Prasanson</span>
             <span style="font-size:13px;color:var(--muted)">VP of Sales, Jason's Deli</span>
           </div>
+          <i class="ti ti-quote" style="margin-left:auto;font-size:44px;line-height:1;color:rgba(0,153,125,.16)"></i>
         </div>
       </div>
     </div>
@@ -490,7 +491,7 @@
 </section>
 
 <!-- INTEGRATIONS -->
-<section id="integrations" class="band-mint">
+<section id="integrations" class="section-grad-gray">
   <div class="wrap">
     <div class="section-intro">
       <p class="eyebrow">Integrations</p>
@@ -533,7 +534,7 @@
 </section>
 
 <!-- ECONOMICS -->
-<section class="section-page">
+<section class="section-grad-teal">
   <div class="wrap">
     <div class="section-intro" style="max-width:760px">
       <p class="eyebrow">Economics</p>
@@ -574,7 +575,7 @@
 </section>
 
 <!-- RESULTS / CASE STUDIES -->
-<section class="band-mint case-section">
+<section class="section-grad-gray case-section">
   <div class="wrap">
     <div class="section-intro section-intro-tight">
       <p class="eyebrow">Results</p>
@@ -589,7 +590,7 @@
     </div>
     <div class="case-dots" id="js-case-dots"></div>
     <div class="case-more">
-      <a href="#resources" class="btn btn-outline">Read all case studies <i class="ti ti-arrow-right"></i></a>
+      <a href="case-studies.html" class="btn btn-outline">Read all case studies <i class="ti ti-arrow-right"></i></a>
     </div>
   </div>
 </section>
@@ -658,26 +659,90 @@
       <h2 class="h2 h2-ondark">See Cartwheel in action.</h2>
       <p>Talk to a Cartwheel expert about your delivery volume, your stack, and where orders are slipping through the cracks today.</p>
     </div>
-    <form class="cat-lead-form" onsubmit="return false">
-      <label class="cat-field-label" for="plat-role">What best describes you?</label>
-      <select class="cat-field" id="plat-role">
-        <option>Select one</option>
-        <option>Restaurant operator</option>
-        <option>Catering manager</option>
-        <option>Franchise group</option>
-        <option>Delivery / DSP partner</option>
-        <option>Other</option>
-      </select>
-      <label class="cat-field-label" for="plat-name">Full name</label>
-      <input class="cat-field" id="plat-name" type="text" placeholder="Full name">
-      <label class="cat-field-label" for="plat-email">Work email</label>
-      <input class="cat-field" id="plat-email" type="email" placeholder="Work email">
-      <label class="cat-field-label" for="plat-phone">Phone number</label>
-      <input class="cat-field" id="plat-phone" type="tel" placeholder="Phone number">
-      <label class="cat-field-check"><input type="checkbox">I'd like to receive event invitations, industry insights and updates from Cartwheel.</label>
-      <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center">Proceed</button>
-      <p class="cat-lead-note">By filling in this form, you agree to be contacted by Cartwheel. Read our <a href="#">Privacy Policy</a>.</p>
-    </form>
+    <form class="cat-lead-form demo-form" novalidate>
+  <div class="df-success" data-df-success hidden>
+    <div class="df-success-icon"><i class="ti ti-check" aria-hidden="true"></i></div>
+    <h3 class="df-success-title">Request received</h3>
+    <p class="df-success-msg" data-df-msg>A Cartwheel expert will reach out within one business day.</p>
+    <a href="#" class="btn btn-gradient df-success-link" data-df-link hidden>Go to the demo page <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+  </div>
+  <div data-df-fields>
+    <div class="df-group">
+      <label class="df-label">What best describes you?</label>
+      <div class="df-fdd" data-fdd>
+        <button type="button" class="df-fdd-btn" data-fdd-btn aria-haspopup="listbox"><span data-fdd-label>Select one</span><i class="ti ti-chevron-down" aria-hidden="true"></i></button>
+        <div class="df-fdd-menu" role="listbox">
+          <button type="button" class="df-fdd-item" role="option" data-who="0">Restaurant operator</button>
+          <button type="button" class="df-fdd-item" role="option" data-who="1">Courier company</button>
+          <button type="button" class="df-fdd-item" role="option" data-who="2">Enquire about partnership</button>
+          <button type="button" class="df-fdd-item" role="option" data-who="3">Driver</button>
+        </div>
+      </div>
+      <p class="df-ferr" data-err="who" role="alert" hidden><i class="ti ti-alert-circle" aria-hidden="true"></i><span></span></p>
+    </div>
+
+    <div class="df-group" data-grp="mkt" hidden>
+      <label class="df-label">Where do your restaurants operate?</label>
+      <div class="df-optgrp">
+        <label class="df-opt"><input type="radio" name="mkt" value="0"><span class="df-opt-flags"><span class="df-flag-stack"><img src="assets/flag-us-n.png" alt=""></span><span>United States</span></span></label>
+        <label class="df-opt"><input type="radio" name="mkt" value="1"><span class="df-opt-flags"><span class="df-flag-stack"><img src="assets/flag-ca-n.png" alt=""><img src="assets/flag-uk-n.png" alt=""><img src="assets/flag-ie-n.png" alt=""><img src="assets/flag-au-n.png" alt=""><img src="assets/flag-pr-n.png" alt=""></span><span>Canada, UK, Ireland, Australia, Puerto Rico</span></span></label>
+      </div>
+      <p class="df-ferr" data-err="mkt" role="alert" hidden><i class="ti ti-alert-circle" aria-hidden="true"></i><span></span></p>
+    </div>
+
+    <div class="df-group" data-grp="loc" hidden>
+      <label class="df-label">Number of locations?</label>
+      <div class="df-optgrp is-row">
+        <label class="df-opt" style="flex:none;min-width:70px"><input type="radio" name="loc" value="0"><span>1 - 2</span></label>
+        <label class="df-opt" style="flex:none;min-width:70px"><input type="radio" name="loc" value="1"><span>3 +</span></label>
+      </div>
+      <p class="df-ferr" data-err="loc" role="alert" hidden><i class="ti ti-alert-circle" aria-hidden="true"></i><span></span></p>
+    </div>
+
+    <div class="df-group" data-grp="drv" hidden>
+      <label class="df-label">Do you have in-house drivers?</label>
+      <div class="df-optgrp is-row">
+        <label class="df-opt" style="flex:none;min-width:70px"><input type="radio" name="drv" value="0"><span>Yes</span></label>
+        <label class="df-opt" style="flex:none;min-width:70px"><input type="radio" name="drv" value="1"><span>No</span></label>
+      </div>
+      <p class="df-ferr" data-err="drv" role="alert" hidden><i class="ti ti-alert-circle" aria-hidden="true"></i><span></span></p>
+    </div>
+
+    <div class="df-group" data-grp="vol" hidden>
+      <label class="df-label">How many orders do you deliver per month?</label>
+      <div class="df-optgrp is-row">
+        <label class="df-opt" style="flex:none;min-width:90px"><input type="radio" name="vol" value="0"><span>1000 +</span></label>
+        <label class="df-opt" style="flex:none;min-width:110px"><input type="radio" name="vol" value="1"><span>Under 1000</span></label>
+      </div>
+      <p class="df-ferr" data-err="vol" role="alert" hidden><i class="ti ti-alert-circle" aria-hidden="true"></i><span></span></p>
+    </div>
+
+    <div class="df-note-box" data-grp="driver-note" hidden>
+      <p>Cartwheel does not hire drivers.</p>
+      <p>We build the software restaurants and delivery fleets run on. Driver hiring is handled by those companies, so apply directly with a fleet or restaurant in your area.</p>
+    </div>
+
+    <div data-grp="contact">
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px">
+        <div>
+          <input class="df-finp" type="text" name="name" placeholder="Full name" autocomplete="name">
+          <p class="df-ferr" data-err="name" role="alert" hidden><i class="ti ti-alert-circle" aria-hidden="true"></i><span></span></p>
+        </div>
+        <div>
+          <input class="df-finp" type="email" name="email" placeholder="Work email" autocomplete="email">
+          <p class="df-ferr" data-err="email" role="alert" hidden><i class="ti ti-alert-circle" aria-hidden="true"></i><span></span></p>
+        </div>
+        <div>
+          <input class="df-finp" type="tel" name="phone" placeholder="Phone number" autocomplete="tel">
+          <p class="df-ferr" data-err="phone" role="alert" hidden><i class="ti ti-alert-circle" aria-hidden="true"></i><span></span></p>
+        </div>
+      </div>
+      <label class="df-fchk"><input type="checkbox" name="optin"><span class="df-box"><i class="ti ti-check" aria-hidden="true"></i></span><span>I'd like to receive event invitations, industry insights and updates from Cartwheel.</span></label>
+      <button type="submit" class="btn btn-gradient">Proceed</button>
+      <p class="cat-lead-note">By filling in this form, you agree to be contacted by Cartwheel. Read our <a href="https://trycartwheel.com/privacy-policy/">Privacy Policy</a>.</p>
+    </div>
+  </div>
+</form>
   </div>
 </section>
 
@@ -740,5 +805,6 @@
 
 </div>
 <script src="js/main.js"></script>
+<script src="js/demo-form.js"></script>
 </body>
 </html>
