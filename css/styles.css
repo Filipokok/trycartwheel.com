@@ -550,8 +550,10 @@ h1,h2,h3,h4,h5{font-weight:400}
 .cat-faq-item.is-open .cat-faq-a{display:block}
 
 /* Lead form */
-.cat-lead{padding:clamp(56px,8vw,84px) 0;background:var(--cat-pat) repeat,var(--dark);color:#fff}
-.cat-lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.cat-lead{position:relative;overflow:hidden;padding:clamp(56px,8vw,84px) 0;background:var(--dark);color:#fff}
+.cat-lead::before{content:"";position:absolute;inset:-20px;background:url('../assets/demo-map-bg.png') center/cover no-repeat;filter:blur(3px);pointer-events:none}
+.cat-lead::after{content:"";position:absolute;inset:0;background:var(--dark);opacity:.55;pointer-events:none}
+.cat-lead-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
 .cat-lead-copy p{color:var(--ondark-muted);max-width:40ch;margin-top:12px}
 .cat-lead-form{--surface:#ffffff;--text:#31373F;--head:#262b31;--muted:#5C656E;--border:rgba(49,55,63,.12);--teal-d:#007A64;--teal-wash:#E6F4F1;--shadow:0 1px 2px rgba(49,55,63,.05),0 14px 34px rgba(49,55,63,.07);background:var(--surface);border-radius:var(--card-radius);padding:clamp(24px,3vw,30px);box-shadow:0 30px 60px -18px rgba(0,0,0,.45)}
 .cat-lead-note{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.5}
