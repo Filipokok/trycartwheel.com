@@ -193,13 +193,13 @@
 
   /* ===== Catering page: testimonial carousel ===== */
   var testimonials = [
-    { logo: 'assets/logo-pfchangs.svg', initials: 'CB', quote: '“Cartwheel allows us to handle the highest priority orders with self-delivery, ensuring the experience is seamless, delivered with P.F. Chang’s hospitality and encouraging the customer to return for repeat deliveries through our native ordering platforms.”', name: 'Candice Barnett', role: 'VP Off-Premises Dining, P.F. Chang’s' },
-    { logo: 'assets/logo-jasons-deli.svg', initials: 'AS', quote: '“By implementing Cartwheel’s unified delivery management platform, we’ve streamlined our operations, reduced the load on team members, and enhanced our ability to ensure the best, most efficient customer service across all ordering channels.”', name: 'Amy Schuster', role: 'Vice President of IT, Jason’s Deli' },
-    { logo: 'assets/logo-giordanos.png', initials: 'NS', quote: '“Chicago’s love for pizza and football runs deep, and peak demand periods like Super Bowl weekend put real pressure on our operations. Cartwheel gives our store teams the control they need to make smart delivery decisions in real time while ensuring that every delivery feels like Giordano’s, not a generic transaction.”', name: 'Nick Scarpino', role: 'CEO, Giordano’s' },
-    { logo: 'assets/logo-portillos.svg', initials: 'MO', quote: '“With more than 60 Portillo’s locations nationwide and the highest average unit sales volumes in the fast-casual industry, we have a lot of deliveries to manage. It’s important that our brand is well-represented. Our experience with Cartwheel has been so positive that we invested in the company so they can further develop services with brands in mind.”', name: 'Michael Osanloo', role: 'CEO, Portillo’s' },
-    { logo: '', initials: 'MS', quote: '“We continue to see real value in maintaining a direct relationship with our guests and investing in our in-house delivery capabilities. Third-party delivery provides important additional reach and flexibility, and Cartwheel helps us bring these approaches together while maintaining a consistent guest experience as we modernize our delivery operations.”', name: 'Moe Shrikian', role: 'Executive Vice President and General Counsel, Hungry Howie’s' },
-    { logo: 'assets/logo-potbelly.svg', initials: 'SM', quote: '“With Cartwheel, our delivery program is as customizable as our menu. Since implementing Cartwheel’s tools, Potbelly has been able to offer faster, more efficient delivery to our customers from more than 400 locations nationwide.”', name: 'Sam Martinez', role: 'Business Systems Manager, Potbelly' },
-    { logo: 'assets/logo-portillos.svg', initials: 'DN', quote: '“Cartwheel allowed us to adjust our order volume to driver availability, eliminating the worry of having enough drivers to maintain delivery quality.”', name: 'Dino Northway', role: 'Senior Manager Off-Premise Dining, Portillo’s' }
+    { logo: 'assets/logo-pfchangs.svg', photo: 'assets/testi-barnett.jpg', quote: '“Cartwheel allows us to handle the highest priority orders with self-delivery, ensuring the experience is seamless, delivered with P.F. Chang’s hospitality and encouraging the customer to return for repeat deliveries through our native ordering platforms.”', name: 'Candice Barnett', role: 'VP Off-Premises Dining, P.F. Chang’s' },
+    { logo: 'assets/logo-jasons-deli.svg', photo: 'assets/testi-schuster2.png', quote: '“By implementing Cartwheel’s unified delivery management platform, we’ve streamlined our operations, reduced the load on team members, and enhanced our ability to ensure the best, most efficient customer service across all ordering channels.”', name: 'Amy Schuster', role: 'Vice President of IT, Jason’s Deli' },
+    { logo: 'assets/logo-giordanos.png', photo: 'assets/testi-scarpino-giordanos.png', quote: '“Chicago’s love for pizza and football runs deep, and peak demand periods like Super Bowl weekend put real pressure on our operations. Cartwheel gives our store teams the control they need to make smart delivery decisions in real time while ensuring that every delivery feels like Giordano’s, not a generic transaction.”', name: 'Nick Scarpino', role: 'CEO, Giordano’s' },
+    { logo: 'assets/logo-portillos.svg', photo: 'assets/testi-osanloo.jpg', quote: '“With more than 60 Portillo’s locations nationwide and the highest average unit sales volumes in the fast-casual industry, we have a lot of deliveries to manage. It’s important that our brand is well-represented. Our experience with Cartwheel has been so positive that we invested in the company so they can further develop services with brands in mind.”', name: 'Michael Osanloo', role: 'CEO, Portillo’s' },
+    { logo: 'assets/logo-hungry-howies.png', quote: '“We continue to see real value in maintaining a direct relationship with our guests and investing in our in-house delivery capabilities. Third-party delivery provides important additional reach and flexibility, and Cartwheel helps us bring these approaches together while maintaining a consistent guest experience as we modernize our delivery operations.”', name: 'Moe Shrikian', role: 'Executive Vice President and General Counsel, Hungry Howie’s' },
+    { logo: 'assets/logo-potbelly.png', quote: '“With Cartwheel, our delivery program is as customizable as our menu. Since implementing Cartwheel’s tools, Potbelly has been able to offer faster, more efficient delivery to our customers from more than 400 locations nationwide.”', name: 'Sam Martinez', role: 'Business Systems Manager, Potbelly' },
+    { logo: 'assets/logo-portillos.svg', photo: 'assets/testi-northway.jpg', quote: '“Cartwheel allowed us to adjust our order volume to driver availability, eliminating the worry of having enough drivers to maintain delivery quality.”', name: 'Dino Northway', role: 'Senior Manager Off-Premise Dining, Portillo’s' }
   ];
 
   var tcard = document.getElementById('js-tcard');
@@ -219,10 +219,10 @@
       var t = testimonials[ti];
       tcard.innerHTML =
         (t.logo ? '<img src="' + t.logo + '" alt="" class="cat-tcard-logo">' : '') +
-        '<div class="cat-tcard-mark">&rdquo;</div>' +
+        '<i class="ti ti-quote cat-tcard-mark" aria-hidden="true"></i>' +
         '<p class="cat-tcard-quote">' + t.quote + '</p>' +
         '<div class="cat-tcard-attr">' +
-          '<div class="cat-tcard-avatar">' + t.initials + '</div>' +
+          '<div class="cat-tcard-avatar">' + (t.photo ? '<img src="' + t.photo + '" alt="">' : '<i class="ti ti-building-store" aria-hidden="true"></i>') + '</div>' +
           '<div><div class="cat-tcard-name">' + t.name + '</div><div class="cat-tcard-role">' + t.role + '</div></div>' +
         '</div>';
       tdots.forEach(function (d, n) { d.classList.toggle('active', n === ti); });
@@ -614,10 +614,10 @@
 
   /* ===== Restaurants page: testimonial carousel ===== */
   var restTestimonials = [
-    { logo: 'assets/logo-portillos.svg', initials: 'MO', quote: '“With more than 60 Portillo’s locations nationwide and the highest average unit sales volumes in the fast-casual industry, we have a lot of deliveries to manage. It’s important that our brand is well-represented. Our experience with Cartwheel has been so positive that we invested in the company so they can further develop services with brands in mind.”', name: 'Michael Osanloo', role: 'CEO, Portillo’s' },
-    { logo: 'assets/logo-pfchangs.svg', initials: 'CB', quote: '“Cartwheel allows us to handle the highest priority orders with self-delivery, ensuring the experience is seamless, delivered with P.F. Chang’s hospitality and encouraging the customer to return for repeat deliveries through our native ordering platforms.”', name: 'Candice Barnett', role: 'VP, Off-Premise Dining, P.F. Chang’s' },
-    { logo: 'assets/logo-jasons-deli.svg', initials: 'AS', quote: '“By implementing Cartwheel’s unified delivery management platform, we’ve streamlined our operations, reduced the load on team members, and enhanced our ability to ensure the best, most efficient customer service across all ordering channels.”', name: 'Amy Schuster', role: 'VP of IT, Jason’s Deli' },
-    { logo: 'assets/logo-portillos.svg', initials: 'NS', quote: '“With Cartwheel we were able to use our team members to deliver our highest-value orders. Instead of relying exclusively on third-party delivery companies for fulfilment, we have been able to cross-train our staff so that they can become drivers for our own fleet.”', name: 'Nick Scarpino', role: 'SVP of Marketing, Portillo’s' }
+    { logo: 'assets/logo-portillos.svg', photo: 'assets/testi-osanloo.jpg', quote: '“With more than 60 Portillo’s locations nationwide and the highest average unit sales volumes in the fast-casual industry, we have a lot of deliveries to manage. It’s important that our brand is well-represented. Our experience with Cartwheel has been so positive that we invested in the company so they can further develop services with brands in mind.”', name: 'Michael Osanloo', role: 'CEO, Portillo’s' },
+    { logo: 'assets/logo-pfchangs.svg', photo: 'assets/testi-barnett.jpg', quote: '“Cartwheel allows us to handle the highest priority orders with self-delivery, ensuring the experience is seamless, delivered with P.F. Chang’s hospitality and encouraging the customer to return for repeat deliveries through our native ordering platforms.”', name: 'Candice Barnett', role: 'VP, Off-Premise Dining, P.F. Chang’s' },
+    { logo: 'assets/logo-jasons-deli.svg', photo: 'assets/testi-schuster2.png', quote: '“By implementing Cartwheel’s unified delivery management platform, we’ve streamlined our operations, reduced the load on team members, and enhanced our ability to ensure the best, most efficient customer service across all ordering channels.”', name: 'Amy Schuster', role: 'VP of IT, Jason’s Deli' },
+    { logo: 'assets/logo-portillos.svg', quote: '“With Cartwheel we were able to use our team members to deliver our highest-value orders. Instead of relying exclusively on third-party delivery companies for fulfilment, we have been able to cross-train our staff so that they can become drivers for our own fleet.”', name: 'Nick Scarpino', role: 'SVP of Marketing, Portillo’s' }
   ];
   var restTcard = document.getElementById('js-tcard-rest');
   var restTdotsEl = document.getElementById('js-tdots-rest');
@@ -636,10 +636,10 @@
       var t = restTestimonials[rti];
       restTcard.innerHTML =
         (t.logo ? '<img src="' + t.logo + '" alt="" class="cat-tcard-logo">' : '') +
-        '<div class="cat-tcard-mark">&rdquo;</div>' +
+        '<i class="ti ti-quote cat-tcard-mark" aria-hidden="true"></i>' +
         '<p class="cat-tcard-quote">' + t.quote + '</p>' +
         '<div class="cat-tcard-attr">' +
-          '<div class="cat-tcard-avatar">' + t.initials + '</div>' +
+          '<div class="cat-tcard-avatar">' + (t.photo ? '<img src="' + t.photo + '" alt="">' : '<i class="ti ti-building-store" aria-hidden="true"></i>') + '</div>' +
           '<div><div class="cat-tcard-name">' + t.name + '</div><div class="cat-tcard-role">' + t.role + '</div></div>' +
         '</div>';
       restTdots.forEach(function (d, n) { d.classList.toggle('active', n === rti); });
@@ -653,9 +653,9 @@
 
   /* ===== Pizza page: testimonial carousel ===== */
   var pizzaTestimonials = [
-    { logo: 'assets/logo-giordanos.png', initials: 'NS', quote: '“Chicago’s love for pizza and football runs deep, and peak demand periods like Super Bowl weekend put real pressure on our operations. Cartwheel gives our store teams the control they need to make smart delivery decisions in real time while ensuring that every delivery feels like Giordano’s, not a generic transaction.”', name: 'Nick Scarpino', role: 'CEO, Giordano’s' },
-    { logo: 'assets/logo-hungry-howies.png', initials: 'MS', quote: '“We continue to see real value in maintaining a direct relationship with our guests and investing in our in-house delivery capabilities. Third-party delivery provides important additional reach and flexibility, and Cartwheel helps us bring these approaches together while maintaining a consistent guest experience as we modernize our delivery operations.”', name: 'Moe Shrikian', role: 'Executive Vice President and General Counsel, Hungry Howie’s' },
-    { logo: 'assets/logo-mr-jims.png', initials: 'BH', quote: '“Using Cartwheel and Uber Direct has significantly reduced our delivery times, increased customer satisfaction, and boosted sales. The integration is seamless. Our drivers handle local orders, and Uber Direct takes care of overflow. With real-time tracking for both, we have complete visibility, which has elevated our service across the board.”', name: 'Bryce Hamm', role: 'Franchisee, MrJim’s Pizza' }
+    { logo: 'assets/logo-giordanos.png', photo: 'assets/testi-scarpino-giordanos.png', quote: '“Chicago’s love for pizza and football runs deep, and peak demand periods like Super Bowl weekend put real pressure on our operations. Cartwheel gives our store teams the control they need to make smart delivery decisions in real time while ensuring that every delivery feels like Giordano’s, not a generic transaction.”', name: 'Nick Scarpino', role: 'CEO, Giordano’s' },
+    { logo: 'assets/logo-hungry-howies.png', quote: '“We continue to see real value in maintaining a direct relationship with our guests and investing in our in-house delivery capabilities. Third-party delivery provides important additional reach and flexibility, and Cartwheel helps us bring these approaches together while maintaining a consistent guest experience as we modernize our delivery operations.”', name: 'Moe Shrikian', role: 'Executive Vice President and General Counsel, Hungry Howie’s' },
+    { logo: 'assets/logo-mr-jims.png', photo: 'assets/cs/bryce-hamm.png', quote: '“Using Cartwheel and Uber Direct has significantly reduced our delivery times, increased customer satisfaction, and boosted sales. The integration is seamless. Our drivers handle local orders, and Uber Direct takes care of overflow. With real-time tracking for both, we have complete visibility, which has elevated our service across the board.”', name: 'Bryce Hamm', role: 'Franchisee, MrJim’s Pizza' }
   ];
   var pizzaTcard = document.getElementById('js-tcard-pizza');
   var pizzaTdotsEl = document.getElementById('js-tdots-pizza');
@@ -674,10 +674,10 @@
       var t = pizzaTestimonials[pzi];
       pizzaTcard.innerHTML =
         (t.logo ? '<img src="' + t.logo + '" alt="" class="cat-tcard-logo">' : '') +
-        '<div class="cat-tcard-mark">&rdquo;</div>' +
+        '<i class="ti ti-quote cat-tcard-mark" aria-hidden="true"></i>' +
         '<p class="cat-tcard-quote">' + t.quote + '</p>' +
         '<div class="cat-tcard-attr">' +
-          '<div class="cat-tcard-avatar">' + t.initials + '</div>' +
+          '<div class="cat-tcard-avatar">' + (t.photo ? '<img src="' + t.photo + '" alt="">' : '<i class="ti ti-building-store" aria-hidden="true"></i>') + '</div>' +
           '<div><div class="cat-tcard-name">' + t.name + '</div><div class="cat-tcard-role">' + t.role + '</div></div>' +
         '</div>';
       pizzaTdots.forEach(function (d, n) { d.classList.toggle('active', n === pzi); });
@@ -691,10 +691,10 @@
 
   /* ===== Toast page: testimonial carousel ===== */
   var toastTestimonials = [
-    { logo: 'assets/logo-portillos.svg', initials: 'MO', quote: '“With more than 60 Portillo’s locations nationwide and the highest average unit sales volumes in the fast-casual industry, we have a lot of deliveries to manage. It’s important that our brand is well-represented. Our experience with Cartwheel has been so positive that we invested in the company so they can further develop services with brands in mind.”', name: 'Michael Osanloo', role: 'CEO, Portillo’s' },
-    { logo: 'assets/logo-pfchangs.svg', initials: 'CB', quote: '“Cartwheel allows us to handle the highest priority orders with self-delivery, ensuring the experience is seamless, delivered with P.F. Chang’s hospitality and encouraging the customer to return for repeat deliveries through our native ordering platforms.”', name: 'Candice Barnett', role: 'VP, Off-Premise Dining, P.F. Chang’s' },
-    { logo: 'assets/logo-jasons-deli.svg', initials: 'AS', quote: '“By implementing Cartwheel’s unified delivery management platform, we’ve streamlined our operations, reduced the load on team members, and enhanced our ability to ensure the best, most efficient customer service across all ordering channels.”', name: 'Amy Schuster', role: 'VP of IT, Jason’s Deli' },
-    { logo: 'assets/logo-portillos.svg', initials: 'NS', quote: '“With Cartwheel we were able to use our team members to deliver our highest-value orders. Instead of relying exclusively on third-party delivery companies for fulfilment, we have been able to cross-train our staff so that they can become drivers for our own fleet.”', name: 'Nick Scarpino', role: 'SVP of Marketing, Portillo’s' }
+    { logo: 'assets/logo-portillos.svg', photo: 'assets/testi-osanloo.jpg', quote: '“With more than 60 Portillo’s locations nationwide and the highest average unit sales volumes in the fast-casual industry, we have a lot of deliveries to manage. It’s important that our brand is well-represented. Our experience with Cartwheel has been so positive that we invested in the company so they can further develop services with brands in mind.”', name: 'Michael Osanloo', role: 'CEO, Portillo’s' },
+    { logo: 'assets/logo-pfchangs.svg', photo: 'assets/testi-barnett.jpg', quote: '“Cartwheel allows us to handle the highest priority orders with self-delivery, ensuring the experience is seamless, delivered with P.F. Chang’s hospitality and encouraging the customer to return for repeat deliveries through our native ordering platforms.”', name: 'Candice Barnett', role: 'VP, Off-Premise Dining, P.F. Chang’s' },
+    { logo: 'assets/logo-jasons-deli.svg', photo: 'assets/testi-schuster2.png', quote: '“By implementing Cartwheel’s unified delivery management platform, we’ve streamlined our operations, reduced the load on team members, and enhanced our ability to ensure the best, most efficient customer service across all ordering channels.”', name: 'Amy Schuster', role: 'VP of IT, Jason’s Deli' },
+    { logo: 'assets/logo-portillos.svg', quote: '“With Cartwheel we were able to use our team members to deliver our highest-value orders. Instead of relying exclusively on third-party delivery companies for fulfilment, we have been able to cross-train our staff so that they can become drivers for our own fleet.”', name: 'Nick Scarpino', role: 'SVP of Marketing, Portillo’s' }
   ];
   var toastTcard = document.getElementById('js-tcard-toast');
   var toastTdotsEl = document.getElementById('js-tdots-toast');
@@ -713,10 +713,10 @@
       var t = toastTestimonials[tti];
       toastTcard.innerHTML =
         (t.logo ? '<img src="' + t.logo + '" alt="" class="cat-tcard-logo">' : '') +
-        '<div class="cat-tcard-mark">&rdquo;</div>' +
+        '<i class="ti ti-quote cat-tcard-mark" aria-hidden="true"></i>' +
         '<p class="cat-tcard-quote">' + t.quote + '</p>' +
         '<div class="cat-tcard-attr">' +
-          '<div class="cat-tcard-avatar">' + t.initials + '</div>' +
+          '<div class="cat-tcard-avatar">' + (t.photo ? '<img src="' + t.photo + '" alt="">' : '<i class="ti ti-building-store" aria-hidden="true"></i>') + '</div>' +
           '<div><div class="cat-tcard-name">' + t.name + '</div><div class="cat-tcard-role">' + t.role + '</div></div>' +
         '</div>';
       toastTdots.forEach(function (d, n) { d.classList.toggle('active', n === tti); });
@@ -730,13 +730,13 @@
 
   /* ===== Platform Overview page: testimonial carousel ===== */
   var platTestimonials = [
-    { photo: 'assets/people/osanloo.jpg', quote: '“With more than 60 Portillo’s locations nationwide and the highest average unit sales volumes in the fast-casual industry, we have a lot of deliveries to manage. Our experience with Cartwheel has been so positive that we invested in the company so they can further develop services with brands in mind.”', name: 'Michael Osanloo', role: 'CEO, Portillo’s' },
-    { photo: 'assets/people/barnett.jpg', quote: '“Cartwheel allows us to handle the highest priority orders with self-delivery, ensuring the experience is seamless, delivered with P.F. Chang’s hospitality and encouraging the customer to return for repeat deliveries through our native ordering platforms.”', name: 'Candice Barnett', role: 'VP Off-Premises Dining, P.F. Chang’s' },
-    { initials: 'SM', quote: '“With Cartwheel, our delivery program is as customizable as our menu. Since implementing Cartwheel’s tools, Potbelly has been able to offer faster, more efficient delivery to our customers from more than 400 locations nationwide.”', name: 'Sam Martinez', role: 'Business Systems Manager, Potbelly' },
-    { photo: 'assets/people/northway.jpg', quote: '“Cartwheel allowed us to adjust our order volume to driver availability, eliminating the worry of having enough drivers to maintain delivery quality.”', name: 'Dino Northway', role: 'Senior Manager Off-Premise Dining, Portillo’s' },
-    { photo: 'assets/people/schuster.png', quote: '“By implementing Cartwheel’s unified delivery management platform, we’ve streamlined our operations, reduced the load on team members, and enhanced our ability to ensure the best, most efficient customer service across all ordering channels.”', name: 'Amy Schuster', role: 'Vice President of IT, Jason’s Deli' },
-    { photo: 'assets/people/polk.png', quote: '“Together, Cartwheel and Omnicart technologies offer the optimal end-to-end delivery management solution for local delivery operators. Local providers can now access via open APIs the sophisticated tech and customizable offerings typically only available within expensive enterprise platforms.”', name: 'Kevin Polk', role: 'Owner, JackRabbit Deliveries' },
-    { initials: 'MS', quote: '“We continue to see real value in maintaining a direct relationship with our guests and investing in our in-house delivery capabilities. Cartwheel helps us bring in-house and third-party delivery together while maintaining a consistent guest experience.”', name: 'Moe Shrikian', role: 'EVP and General Counsel, Hungry Howie’s' }
+    { photo: 'assets/people/osanloo.jpg', logo: 'assets/logo-portillos.svg', quote: '“With more than 60 Portillo’s locations nationwide and the highest average unit sales volumes in the fast-casual industry, we have a lot of deliveries to manage. Our experience with Cartwheel has been so positive that we invested in the company so they can further develop services with brands in mind.”', name: 'Michael Osanloo', role: 'CEO, Portillo’s' },
+    { photo: 'assets/people/barnett.jpg', logo: 'assets/logo-pfchangs.svg', quote: '“Cartwheel allows us to handle the highest priority orders with self-delivery, ensuring the experience is seamless, delivered with P.F. Chang’s hospitality and encouraging the customer to return for repeat deliveries through our native ordering platforms.”', name: 'Candice Barnett', role: 'VP Off-Premises Dining, P.F. Chang’s' },
+    { logo: 'assets/logo-potbelly.png', quote: '“With Cartwheel, our delivery program is as customizable as our menu. Since implementing Cartwheel’s tools, Potbelly has been able to offer faster, more efficient delivery to our customers from more than 400 locations nationwide.”', name: 'Sam Martinez', role: 'Business Systems Manager, Potbelly' },
+    { photo: 'assets/people/northway.jpg', logo: 'assets/logo-portillos.svg', quote: '“Cartwheel allowed us to adjust our order volume to driver availability, eliminating the worry of having enough drivers to maintain delivery quality.”', name: 'Dino Northway', role: 'Senior Manager Off-Premise Dining, Portillo’s' },
+    { photo: 'assets/people/schuster.png', logo: 'assets/logo-jasons-deli.svg', quote: '“By implementing Cartwheel’s unified delivery management platform, we’ve streamlined our operations, reduced the load on team members, and enhanced our ability to ensure the best, most efficient customer service across all ordering channels.”', name: 'Amy Schuster', role: 'Vice President of IT, Jason’s Deli' },
+    { photo: 'assets/people/polk.png', logo: 'assets/logo-jackrabbit.png', quote: '“Together, Cartwheel and Omnicart technologies offer the optimal end-to-end delivery management solution for local delivery operators. Local providers can now access via open APIs the sophisticated tech and customizable offerings typically only available within expensive enterprise platforms.”', name: 'Kevin Polk', role: 'Owner, JackRabbit Deliveries' },
+    { logo: 'assets/logo-hungry-howies.png', quote: '“We continue to see real value in maintaining a direct relationship with our guests and investing in our in-house delivery capabilities. Cartwheel helps us bring in-house and third-party delivery together while maintaining a consistent guest experience.”', name: 'Moe Shrikian', role: 'EVP and General Counsel, Hungry Howie’s' }
   ];
   var platTcard = document.getElementById('js-tcard-plat');
   var platTdotsEl = document.getElementById('js-tdots-plat');
@@ -754,10 +754,11 @@
     function renderPlatT() {
       var t = platTestimonials[pti];
       platTcard.innerHTML =
-        '<div class="cat-tcard-mark">&rdquo;</div>' +
+        (t.logo ? '<img src="' + t.logo + '" alt="" class="cat-tcard-logo">' : '') +
+        '<i class="ti ti-quote cat-tcard-mark" aria-hidden="true"></i>' +
         '<p class="cat-tcard-quote">' + t.quote + '</p>' +
         '<div class="cat-tcard-attr">' +
-          '<div class="cat-tcard-avatar" style="overflow:hidden">' + (t.photo ? '<img src="' + t.photo + '" alt="" style="width:100%;height:100%;object-fit:cover">' : t.initials) + '</div>' +
+          '<div class="cat-tcard-avatar">' + (t.photo ? '<img src="' + t.photo + '" alt="">' : '<i class="ti ti-building-store" aria-hidden="true"></i>') + '</div>' +
           '<div><div class="cat-tcard-name">' + t.name + '</div><div class="cat-tcard-role">' + t.role + '</div></div>' +
         '</div>';
       platTdots.forEach(function (d, n) { d.classList.toggle('active', n === pti); });
