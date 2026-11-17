@@ -588,7 +588,7 @@ h1,h2,h3,h4,h5{font-weight:400}
 
 /* eBook banner strips */
 .rest-eb-strip{position:relative;overflow:hidden;background:rgba(42,223,180,.13);padding:clamp(20px,2.6vw,28px) 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.rest-eb-strip.rest-eb-dark{background:var(--slate);color:#fff}
+.rest-eb-strip.rest-eb-dark{background:var(--dark);color:#fff}
 .rest-eb-grid{display:grid;grid-template-columns:1fr auto;gap:clamp(16px,3vw,48px);align-items:center}
 .rest-eb-kicker{font-size:13px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:var(--teal-d)}
 .rest-eb-dark .rest-eb-kicker{color:var(--teal-bright)}
@@ -600,8 +600,8 @@ h1,h2,h3,h4,h5{font-weight:400}
 /* Case study callout */
 .rest-case{margin-top:36px;display:grid;grid-template-columns:1fr 1.1fr;background:var(--surface);border:1px solid var(--border);border-radius:var(--card-radius);overflow:hidden;color:inherit;transition:.2s}
 .rest-case:hover{border-color:var(--teal);box-shadow:var(--shadow-lift,0 18px 40px -14px rgba(0,153,125,.3))}
-.rest-case-photo{position:relative;display:block;min-height:220px;background:var(--slate)}
-.rest-case-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rest-case-photo{position:relative;display:block;min-height:220px;background:var(--dark)}
+.rest-case-photo img:not(.rest-case-logo){position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .rest-case-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,22,28,.1),rgba(17,22,28,.6))}
 .rest-case-photo .rest-case-logo{position:absolute;left:24px;bottom:22px;max-height:38px;max-width:150px;width:auto;z-index:1}
 .rest-case-body{display:flex;flex-direction:column;gap:14px;padding:28px}
