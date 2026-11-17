@@ -902,3 +902,5 @@ h1,h2,h3,h4,h5{font-weight:400}
 .team-offline-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .team-offline-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--card-radius)}
 @media(max-width:560px){.team-timeline{grid-template-columns:1fr 1fr}}
+.team-press-chip{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:8px;padding:5px 9px}
+[data-theme="dark"] .press-logo .team-press-chip img{filter:none!important;opacity:1!important}
