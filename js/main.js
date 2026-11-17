@@ -350,4 +350,28 @@
     if (platTnext) platTnext.addEventListener('click', function () { pti = (pti + 1) % platTestimonials.length; renderPlatT(); });
     renderPlatT();
   }
+
+  /* ===== Delivery Types page: third-party tabs ===== */
+  var dtThird = document.getElementById('js-dt-third');
+  if (dtThird) {
+    var dtSaveWords = ['costs', 'reputation', 'time', 'customers'];
+    var dtSaveEl = document.getElementById('js-dt-save-word');
+    var dtTabs = dtThird.querySelectorAll('.dt-third-tab');
+    dtTabs.forEach(function (tab) {
+      var btn = tab.querySelector('.dt-third-tab-btn');
+      btn.addEventListener('click', function () {
+        var target = tab.getAttribute('data-tab');
+        dtTabs.forEach(function (t) {
+          var active = t === tab;
+          t.classList.toggle('is-active', active);
+          var chev = t.querySelector('.dt-third-tab-btn i');
+          chev.className = 'ti ' + (active ? 'ti-chevron-down' : 'ti-chevron-right');
+        });
+        dtThird.querySelectorAll('.dt-third-panel').forEach(function (p) {
+          p.classList.toggle('is-active', p.getAttribute('data-panel') === target);
+        });
+        if (dtSaveEl) dtSaveEl.textContent = dtSaveWords[+target] || dtSaveWords[0];
+      });
+    });
+  }
 })();
