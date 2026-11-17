@@ -44,70 +44,119 @@
     paintOrders();
   }, 2600);
 
-  /* ===== Case studies carousel ===== */
-  var cases = [
-    { stat: '490%', cap: 'ROI · 22 hours of manual work eliminated monthly', brand: "Mandy's", quote: '“Cartwheel’s dispatch automation paid for itself many times over. The manual coordination just disappeared.”', attr: "Operations Lead, Mandy's", img: 'assets/case-mandys.jpg' },
-    { stat: '+930%', cap: 'in tips · +50% catering order volume', brand: "Illegal Pete's", quote: '“Our catering took off once orders flowed through Cartwheel and Olo together. The tips alone changed the math.”', attr: "Catering Director, Illegal Pete's", img: 'assets/case-illegal-petes.jpg' },
-    { stat: '+24%', cap: 'on-time rate · 3 hours saved every day', brand: 'Calif Chicken Cafe', quote: '“AI auto-dispatch gave us back hours every day, and our customers actually notice the on-time deliveries.”', attr: 'Owner, California Chicken Cafe', img: 'assets/case-calif-chicken.png' },
-    { stat: '65', cap: 'locations launched in 10 weeks', brand: "Portillo's", quote: '“Cartwheel let us stand up self-delivery for our highest-value orders across dozens of locations, fast.”', attr: "Off-Premise Dining, Portillo's", img: 'assets/case-portillos.png' }
-  ];
+  /* ===== Case studies marquee (auto-scrolling, pauses on hover) ===== */
+  var caseMarquee = document.getElementById('js-case-marquee');
+  var caseTrack = document.getElementById('js-case-track');
+  if (caseMarquee && caseTrack && !prefersReducedMotion) {
+    var ccUniq = Array.prototype.slice.call(caseTrack.children);
+    if (ccUniq.length >= 2 && window.innerWidth > 640) {
+      var ccClones = ccUniq.map(function (n) { return n.cloneNode(true); });
+      ccClones.forEach(function (n) { caseTrack.appendChild(n); });
+      var ccQi = 0, ccX = 0, ccLast = performance.now(), ccPaused = false;
+      caseMarquee.addEventListener('mouseenter', function () { ccPaused = true; });
+      caseMarquee.addEventListener('mouseleave', function () { ccPaused = false; });
+      var CC_SPEED = 42;
+      var ccGapOf = function (el) { return parseFloat(getComputedStyle(el).marginRight) || 0; };
+      var ccStep = function (now) {
+        if (!caseTrack.isConnected) return;
+        var dt = Math.min((now - ccLast) / 1000, 0.1); ccLast = now;
+        if (window.innerWidth <= 640) { caseTrack.style.transform = ''; requestAnimationFrame(ccStep); return; }
+        if (!ccPaused) {
+          ccX -= CC_SPEED * dt;
+          var first = caseTrack.firstElementChild;
+          while (first && ccX + first.offsetWidth + ccGapOf(first) < 0) {
+            ccX += first.offsetWidth + ccGapOf(first);
+            caseTrack.removeChild(first);
+            first = caseTrack.firstElementChild;
+          }
+          while (caseTrack.scrollWidth + ccX < caseMarquee.offsetWidth + 230) {
+            caseTrack.appendChild(ccUniq[ccQi % ccUniq.length].cloneNode(true));
+            ccQi++;
+          }
+          caseTrack.style.transform = 'translateX(' + ccX + 'px)';
+        }
+        requestAnimationFrame(ccStep);
+      };
+      requestAnimationFrame(ccStep);
+    }
+  }
+  /* mobile: dot nav + drag-scroll for the case marquee */
+  var caseDotsEl = document.getElementById('js-case-dots');
+  if (caseMarquee && caseTrack && caseDotsEl && matchMedia('(max-width:640px)').matches) {
+    var ccCards = Array.prototype.slice.call(caseTrack.querySelectorAll('.case-card'));
+    if (ccCards.length) {
+      ccCards.forEach(function (c, i) {
+        var b = document.createElement('button');
+        b.className = 'cd-dot';
+        b.setAttribute('aria-label', 'Case study ' + (i + 1));
+        b.addEventListener('click', function () { caseMarquee.scrollTo({ left: c.offsetLeft - 18, behavior: 'smooth' }); });
+        caseDotsEl.appendChild(b);
+      });
+      var ccDots = Array.prototype.slice.call(caseDotsEl.querySelectorAll('.cd-dot'));
+      var ccUpd = function () {
+        var w = ccCards[0].offsetWidth + 12;
+        var i = Math.max(0, Math.min(ccCards.length - 1, Math.round(caseMarquee.scrollLeft / w)));
+        ccDots.forEach(function (b, j) { b.classList.toggle('on', j === i); });
+      };
+      caseMarquee.addEventListener('scroll', function () { requestAnimationFrame(ccUpd); }, { passive: true });
+      ccUpd();
+    }
+  }
 
-  var fanEl = document.getElementById('js-case-fan');
-  var dotsEl = document.getElementById('js-case-dots');
-  var ci = 0;
-
-  if (fanEl && dotsEl) {
-    var cardEls = cases.map(function (c) {
-      var card = document.createElement('article');
-      card.className = 'case-card';
-      card.innerHTML =
-        '<div class="case-card-inner">' +
-          '<div class="case-top">' +
-            '<div class="case-stat">' + c.stat + '</div>' +
-            '<p class="case-cap">' + c.cap + '</p>' +
-            '<h3 class="case-brand">' + c.brand + '</h3>' +
-            '<p class="case-quote">' + c.quote + '</p>' +
-            '<p class="case-attr">' + c.attr + '</p>' +
-            '<a href="#" class="case-link">Read the story</a>' +
-          '</div>' +
-          '<div class="case-photo" style="background-image:url(&quot;' + c.img + '&quot;)"></div>' +
-        '</div>';
-      fanEl.appendChild(card);
-      return card;
-    });
-
-    var dotEls = cases.map(function (_, n) {
+  /* ===== Homepage testimonials carousel ===== */
+  var tCarousel = document.getElementById('js-testimonials');
+  var tDotsEl = document.getElementById('js-t-dots');
+  if (tCarousel && tDotsEl) {
+    var tSlides = Array.prototype.slice.call(tCarousel.querySelectorAll('.t-slide'));
+    var tIdx = 0, tHover = false;
+    var tDots = tSlides.map(function (_, n) {
       var dot = document.createElement('button');
       dot.type = 'button';
-      dot.className = 'case-dot';
-      dot.setAttribute('aria-label', 'Case ' + (n + 1));
-      dot.addEventListener('click', function () { ci = n; render(); });
-      dotsEl.appendChild(dot);
+      dot.className = 't-dot' + (n === 0 ? ' on' : '');
+      dot.setAttribute('aria-label', 'Testimonial ' + (n + 1));
+      dot.addEventListener('click', function () { tIdx = n; renderT(); });
+      tDotsEl.appendChild(dot);
       return dot;
     });
-
-    function render() {
-      var n = cases.length;
-      cardEls.forEach(function (card, i) {
-        var d = (i - ci + n) % n;
-        var front = d === 0;
-        card.style.transform = 'translate(' + (d * 16) + 'px,' + (d * 14) + 'px) rotate(' + (d * 4) + 'deg) scale(' + (1 - d * 0.035) + ')';
-        card.style.zIndex = String((n - d) * 10);
-        card.style.filter = front ? 'none' : 'brightness(.97)';
-        card.style.cursor = front ? 'default' : 'pointer';
-        card.onclick = front ? null : (function (idx) { return function () { ci = idx; render(); }; })(i);
-      });
-      dotEls.forEach(function (dot, n2) {
-        dot.classList.toggle('active', n2 === ci);
-      });
+    function renderT() {
+      tSlides.forEach(function (s, i) { s.classList.toggle('active', i === tIdx); });
+      tDots.forEach(function (d, i) { d.classList.toggle('on', i === tIdx); });
     }
+    var tPrevBtn = tCarousel.querySelector('.t-prev');
+    var tNextBtn = tCarousel.querySelector('.t-next');
+    if (tPrevBtn) tPrevBtn.addEventListener('click', function () { tIdx = (tIdx - 1 + tSlides.length) % tSlides.length; renderT(); });
+    if (tNextBtn) tNextBtn.addEventListener('click', function () { tIdx = (tIdx + 1) % tSlides.length; renderT(); });
+    tCarousel.addEventListener('mouseenter', function () { tHover = true; });
+    tCarousel.addEventListener('mouseleave', function () { tHover = false; });
+    setInterval(function () {
+      if (tHover) return;
+      tIdx = (tIdx + 1) % tSlides.length;
+      renderT();
+    }, 5500);
+  }
 
-    var prevBtn = document.querySelector('.case-prev');
-    var nextBtn = document.querySelector('.case-next');
-    if (prevBtn) prevBtn.addEventListener('click', function () { ci = (ci - 1 + cases.length) % cases.length; render(); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { ci = (ci + 1) % cases.length; render(); });
-
-    render();
+  /* ===== Homepage catering spotlight: hover rows swap image, ticks auto-progress ===== */
+  var catRowsEl = document.getElementById('js-cat-rows');
+  if (catRowsEl) {
+    var catRows = Array.prototype.slice.call(catRowsEl.querySelectorAll('.cat-row'));
+    var catLayers = Array.prototype.slice.call(document.querySelectorAll('.cat-img-layer'));
+    catRows.forEach(function (row) {
+      row.addEventListener('mouseenter', function () {
+        var i = row.getAttribute('data-i');
+        catRows.forEach(function (r) { r.classList.toggle('active', r === row); });
+        catLayers.forEach(function (l) { l.classList.toggle('active', l.getAttribute('data-i') === i); });
+      });
+    });
+    var catTicks = Array.prototype.slice.call(document.querySelectorAll('#js-cat-ticks .cat-tick'));
+    if (catTicks.length && !prefersReducedMotion) {
+      var catStep = 0;
+      setInterval(function () {
+        catStep = (catStep + 1) % 6;
+        catTicks.forEach(function (t, i) { t.classList.toggle('done', catStep > i); });
+      }, 1400);
+    } else {
+      catTicks.forEach(function (t) { t.classList.add('done'); });
+    }
   }
 
   /* ===== Scroll-reveal: how it works ===== */

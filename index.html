@@ -152,7 +152,8 @@
 <main>
 
 <!-- HERO -->
-<section class="hero glow-section">
+<section class="hero">
+  <div class="hero-amb" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><div class="veil"></div></div>
   <div class="wrap">
     <div class="section-intro">
       <p class="eyebrow">Unified delivery orchestration</p>
@@ -358,24 +359,39 @@
       <p class="section-copy">Catering orders are your highest-value deliveries and the most expensive to get wrong. Orders from your own channels and from ezCater or other marketplaces land on one board, dispatched by the same rules.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr));gap:clamp(24px,4vw,56px);align-items:start">
-      <div style="display:flex;flex-direction:column;gap:4px">
-        <div class="cat-check-row" style="padding:18px 4px;border-bottom:1px dashed var(--border);align-items:flex-start"><i class="ti ti-clipboard-check" style="margin-top:2px"></i><span><b>Catering-specific features.</b> Scheduled dispatch, pre-delivery checklists, photo and signature proof. Branded live tracking your customer can watch.</span></div>
-        <div class="cat-check-row" style="padding:18px 4px;border-bottom:1px dashed var(--border);align-items:flex-start"><i class="ti ti-car" style="margin-top:2px"></i><span><b>The right vehicle, every time.</b> Large orders dispatch to cars and vans, never a courier on a bike. Vehicle type is part of the routing rules.</span></div>
-        <div class="cat-check-row" style="padding:18px 4px;border-bottom:1px dashed var(--border);align-items:flex-start"><i class="ti ti-users-group" style="margin-top:2px"></i><span><b>Specialized fleets.</b> Dozens of catering-focused providers, trained for setup-and-serve orders, plus DoorDash Large Order Fulfillment.</span></div>
-        <div class="cat-check-row" style="padding:18px 4px;align-items:flex-start"><i class="ti ti-plug-connected" style="margin-top:2px"></i><span><b>Fully compatible with ezCater.</b> Cartwheel Driver apps meet ezCater's tracking requirements. Direct connection with ezCater Dispatch from the Cartwheel dashboard.</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px" id="js-cat-rows">
+        <div class="cat-row" data-i="0">
+          <span class="cat-row-chip"><i class="ti ti-clipboard-check"></i></span>
+          <div style="display:flex;flex-direction:column;gap:5px"><h3 style="font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--head)">Catering-specific features</h3><p style="font-size:14.5px;line-height:1.55;color:var(--muted)">Scheduled dispatch, pre-delivery checklists, photo and signature proof. Branded live tracking your customer can watch.</p></div>
+        </div>
+        <div class="cat-row" data-i="1">
+          <span class="cat-row-chip"><i class="ti ti-car"></i></span>
+          <div style="display:flex;flex-direction:column;gap:5px"><h3 style="font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--head)">The right vehicle, every time</h3><p style="font-size:14.5px;line-height:1.55;color:var(--muted)">Large orders dispatch to cars and vans, never a courier on a bike. Vehicle type is part of the routing rules.</p></div>
+        </div>
+        <div class="cat-row" data-i="2">
+          <span class="cat-row-chip"><i class="ti ti-users-group"></i></span>
+          <div style="display:flex;flex-direction:column;gap:5px"><h3 style="font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--head)">Specialized fleets</h3><p style="font-size:14.5px;line-height:1.55;color:var(--muted)">Dozens of catering-focused providers, trained for setup-and-serve orders, plus DoorDash Large Order Fulfillment.</p></div>
+        </div>
+        <div class="cat-row" data-i="3" style="border-bottom:none">
+          <span class="cat-row-chip"><i class="ti ti-plug-connected"></i></span>
+          <div style="display:flex;flex-direction:column;gap:5px"><h3 style="font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--head)">Fully compatible with ezCater</h3><p style="font-size:14.5px;line-height:1.55;color:var(--muted)">Cartwheel Driver apps meet ezCater's tracking requirements. Direct connection with ezCater Dispatch from the Cartwheel dashboard.</p></div>
+        </div>
         <div><a href="#demo" style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:14px;font-weight:600;color:var(--teal-d)">Book a demo <i class="ti ti-arrow-right"></i></a></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:16px">
         <div style="position:relative;border-radius:18px;overflow:hidden;background:var(--slate);box-shadow:0 30px 60px -28px rgba(49,55,63,.55)">
           <div style="position:relative;aspect-ratio:4/3;overflow:hidden">
             <img src="assets/cat-setup-serve-wide.jpg" alt="Catering crew unloading trays from a van and setting up tables" style="width:100%;height:100%;object-fit:cover;display:block">
+            <div class="cat-img-layer" data-i="0"><img src="assets/cat-dispatch-office.png" alt="Car trunk and van loaded with catering trays, bike courier ruled out"></div>
+            <div class="cat-img-layer" data-i="1"><img src="assets/case-chicken.jpg" alt="Catering order in the field"></div>
+            <div class="cat-img-layer" data-i="2"><img src="assets/cat-vehicle-rules-wide.jpg" alt="Operator dispatching a catering order from the dashboard as a van loads" style="object-position:center 30%"></div>
             <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(17,22,28,.42),rgba(17,22,28,0) 38%,rgba(17,22,28,.6) 74%,rgba(17,22,28,.8))"></div>
             <div style="position:absolute;left:16px;top:16px;pointer-events:none;display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.94);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:600;color:var(--slate)"><span style="width:8px;height:8px;border-radius:50%;background:var(--teal)"></span>ORD 4821 · 42 trays</div>
-            <div style="position:absolute;left:16px;right:16px;bottom:16px;pointer-events:none;display:flex;flex-direction:column;gap:8px">
-              <div style="display:flex;align-items:center;gap:10px"><span style="display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--teal);flex:none"><i class="ti ti-calendar-time" style="font-size:13px;color:#fff"></i></span><span style="font-size:14px;font-weight:600;color:#fff">Scheduled dispatch</span><span style="flex:1;height:1px;background:rgba(255,255,255,.22)"></span><span style="font:600 13px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;color:#fff">09:40</span></div>
-              <div style="display:flex;align-items:center;gap:10px"><span style="display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--teal);flex:none"><i class="ti ti-list-check" style="font-size:13px;color:#fff"></i></span><span style="font-size:14px;font-weight:600;color:#fff">Pre-delivery checklist</span><span style="flex:1;height:1px;background:rgba(255,255,255,.22)"></span><span style="font:600 13px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;color:#fff">11:02</span></div>
-              <div style="display:flex;align-items:center;gap:10px"><span style="display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--teal);flex:none"><i class="ti ti-map-pin-check" style="font-size:13px;color:#fff"></i></span><span style="font-size:14px;font-weight:600;color:#fff">Delivered, set up on site</span><span style="flex:1;height:1px;background:rgba(255,255,255,.22)"></span><span style="font:600 13px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;color:#fff">11:28</span></div>
-              <div style="display:flex;align-items:center;gap:10px"><span style="display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--teal);flex:none"><i class="ti ti-camera" style="font-size:13px;color:#fff"></i></span><span style="font-size:14px;font-weight:600;color:#fff">Photo + signature proof</span><span style="flex:1;height:1px;background:rgba(255,255,255,.22)"></span><span style="font:600 13px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;color:#fff">11:30</span></div>
+            <div style="position:absolute;left:16px;right:16px;bottom:16px;pointer-events:none;display:flex;flex-direction:column;gap:8px" id="js-cat-ticks">
+              <div class="cat-tick" data-i="0"><span class="cat-tick-ico"><i class="ti ti-calendar-time"></i></span><span class="cat-tick-label">Scheduled dispatch</span><span class="cat-tick-sep"></span><span class="cat-tick-time">09:40</span></div>
+              <div class="cat-tick" data-i="1"><span class="cat-tick-ico"><i class="ti ti-list-check"></i></span><span class="cat-tick-label">Pre-delivery checklist</span><span class="cat-tick-sep"></span><span class="cat-tick-time">11:02</span></div>
+              <div class="cat-tick" data-i="2"><span class="cat-tick-ico"><i class="ti ti-map-pin-check"></i></span><span class="cat-tick-label">Delivered, set up on site</span><span class="cat-tick-sep"></span><span class="cat-tick-time">11:28</span></div>
+              <div class="cat-tick" data-i="3"><span class="cat-tick-ico"><i class="ti ti-camera"></i></span><span class="cat-tick-label">Photo + signature proof</span><span class="cat-tick-sep"></span><span class="cat-tick-time">11:30</span></div>
             </div>
           </div>
         </div>
@@ -396,23 +412,140 @@
 </section>
 
 <!-- CASE STUDIES -->
-<section class="band-mint case-section">
+<section class="section-page">
   <div class="wrap">
-    <div class="section-intro section-intro-tight">
-      <p class="eyebrow">Real results</p>
-      <h2 class="h2">Operators see it in the numbers.</h2>
+    <div class="section-intro">
+      <p class="eyebrow">Results</p>
+      <h2 class="h2">Operators see this in their numbers, not just their ops.</h2>
     </div>
-    <div class="case-carousel" id="js-case-carousel">
-      <button type="button" class="icon-circle case-nav case-prev" aria-label="Previous"><i class="ti ti-chevron-left"></i></button>
-      <button type="button" class="icon-circle case-nav case-next" aria-label="Next"><i class="ti ti-chevron-right"></i></button>
-      <div class="case-fan" id="js-case-fan">
-        <!-- case cards injected/positioned by JS -->
+    <div class="case-marquee" id="js-case-marquee">
+      <div class="case-track" id="js-case-track">
+        <a class="case-card" style="--oy:-14px;--rot:-1deg;--mr:-20px" href="https://trycartwheel.com/case-studies/jasons-deli-case-study/" target="_blank" rel="noopener">
+          <span class="cc-ph"><img src="assets/cs/jasons-deli-food.jpg" alt=""><span class="cc-shade"></span><img class="cc-logo" src="assets/cs/logo-jasons-deli-w.png" alt="Jason's Deli"></span>
+          <span style="display:block;padding:16px 46px 18px 18px">
+            <span class="cc-tagrow"><span class="cc-tag">Catering delivery</span></span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">242 locations</b> corporate and franchise</span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">4.7+</b> driver rating</span>
+            <span class="cc-partners"><img src="assets/cs/ezcater-logo.png" alt="ezCater"><img src="assets/int-olo.svg" alt="Olo"></span>
+          </span>
+        </a>
+        <a class="case-card" style="--oy:10px;--rot:.8deg;--mr:-20px" href="https://trycartwheel.com/case-studies/portillos-case-study/" target="_blank" rel="noopener">
+          <span class="cc-ph"><img src="assets/cs/portillos-food.jpg" alt=""><span class="cc-shade"></span><img class="cc-logo" src="assets/cs/logo-portillos-w.png" alt="Portillo's"></span>
+          <span style="display:block;padding:16px 46px 18px 18px">
+            <span class="cc-tagrow"><span class="cc-tag">In-house delivery</span></span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">65 locations</b> launched</span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">10 weeks</b> to full rollout</span>
+            <span class="cc-partners"><img src="assets/int-olo.svg" alt="Olo"></span>
+          </span>
+        </a>
+        <a class="case-card" style="--oy:-6px;--rot:-.5deg;--mr:-16px" href="https://trycartwheel.com/case-studies/potbelly-case-study/" target="_blank" rel="noopener">
+          <span class="cc-ph"><img src="assets/cs/potbelly-food.jpg" alt="" style="object-position:center 55%"><span class="cc-shade"></span><img class="cc-logo" src="assets/cs/logo-potbelly-w.png" alt="Potbelly"></span>
+          <span style="display:block;padding:16px 46px 18px 18px">
+            <span class="cc-tagrow"><span class="cc-tag">Hybrid delivery</span></span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">430 locations</b> onboarded</span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">3 days</b> to onboard 1000s of drivers</span>
+            <span class="cc-partners"><img src="assets/cs/ezcater-logo.png" alt="ezCater"><img src="assets/int-olo.svg" alt="Olo"></span>
+          </span>
+        </a>
+        <a class="case-card" style="--oy:16px;--rot:1.1deg;--mr:-18px" href="https://trycartwheel.com/case-studies/pf-changs-case-study/" target="_blank" rel="noopener">
+          <span class="cc-ph"><img src="assets/cs/pf-changs-food-o.jpg" alt=""><span class="cc-shade"></span><img class="cc-logo" src="assets/logo-pfchangs-w.svg" alt="P.F. Chang's"></span>
+          <span style="display:block;padding:16px 46px 18px 18px">
+            <span class="cc-tagrow"><span class="cc-tag">Multi-channel catering</span></span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">42%</b> fewer fulfillment issues</span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">More</b> repeat orders</span>
+            <span class="cc-partners"><img src="assets/cs/ezcater-logo.png" alt="ezCater"><img src="assets/int-olo.svg" alt="Olo"></span>
+          </span>
+        </a>
+        <a class="case-card" style="--oy:-16px;--rot:.6deg;--mr:-22px" href="https://trycartwheel.com/case-studies/calif-chicken-cafe-case-study/" target="_blank" rel="noopener">
+          <span class="cc-ph"><img src="assets/cs/california-chicken-food.jpg" alt="" style="object-position:center 55%"><span class="cc-shade"></span><img class="cc-logo" src="assets/cs/logo-cal-chicken-w.png" alt="California Chicken Cafe"></span>
+          <span style="display:block;padding:16px 46px 18px 18px">
+            <span class="cc-tagrow"><span class="cc-tag">AI-powered delivery</span></span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">+24%</b> on-time delivery</span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">3 hrs</b> of dispatch saved daily</span>
+            <span class="cc-partners"><img src="assets/int-toast.svg" alt="Toast"><img src="assets/int-doordash.png" alt="DoorDash"></span>
+          </span>
+        </a>
+        <a class="case-card" style="--oy:6px;--rot:-1.2deg;--mr:-22px" href="https://trycartwheel.com/case-studies/mandys/" target="_blank" rel="noopener">
+          <span class="cc-ph"><img src="assets/cs/mandys-food.jpg" alt="" style="object-position:center 60%"><span class="cc-shade"></span><img class="cc-logo" src="assets/cs/logo-mandys-w.png" alt="Mandy's"></span>
+          <span style="display:block;padding:16px 46px 18px 18px">
+            <span class="cc-tagrow"><span class="cc-tag">Delivery automation</span></span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">490%</b> ROI</span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">$2,300</b> saved per month</span>
+            <span class="cc-partners"><img src="assets/int-toast.svg" alt="Toast"><span class="cc-ubox"><img src="assets/int-uberdirect.webp" alt="Uber Direct"></span></span>
+          </span>
+        </a>
+        <a class="case-card" style="--oy:-10px;--rot:1deg;--mr:-18px" href="https://trycartwheel.com/case-studies/illegal-petes/" target="_blank" rel="noopener">
+          <span class="cc-ph"><img src="assets/cs/illegal-petes-food.jpg" alt=""><span class="cc-shade"></span><img class="cc-logo" src="assets/cs/logo-illegal-petes-w.png" alt="Illegal Pete's"></span>
+          <span style="display:block;padding:16px 46px 18px 18px">
+            <span class="cc-tagrow"><span class="cc-tag">Catering delivery</span></span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">50%</b> increase in order volume</span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">+930%</b> average tip</span>
+            <span class="cc-partners"><img src="assets/int-olo.svg" alt="Olo"></span>
+          </span>
+        </a>
+        <a class="case-card" style="--oy:14px;--rot:-.7deg;--mr:-20px" href="https://trycartwheel.com/case-studies/national-pizza-chain-case-study/" target="_blank" rel="noopener">
+          <span class="cc-ph"><img src="assets/cs/national-pizza-food.jpg" alt=""><span class="cc-shade"></span><span class="cc-brand">National pizza chain</span></span>
+          <span style="display:block;padding:16px 46px 18px 18px">
+            <span class="cc-tagrow"><span class="cc-tag">Pizza delivery</span></span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">$100K+</b> saved per year</span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">63 → 47 min</b> delivery time</span>
+            <span class="cc-partners"><img src="assets/int-olo.svg" alt="Olo"><img src="assets/int-toast.svg" alt="Toast"></span>
+          </span>
+        </a>
+        <a class="case-card" style="--oy:-18px;--rot:.9deg;--mr:-24px" href="https://trycartwheel.com/case-studies/wings-over-case-study/" target="_blank" rel="noopener">
+          <span class="cc-ph"><img src="assets/cs/wings-over-food-o.jpg" alt="" style="object-position:center 72%"><span class="cc-shade"></span><img class="cc-logo" src="assets/cs/logo-wings-over-w.png" alt="Wings Over"></span>
+          <span style="display:block;padding:16px 46px 18px 18px">
+            <span class="cc-tagrow"><span class="cc-tag">AI auto-dispatch</span></span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">18 locations</b> live in one month</span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">3 hours</b> saved daily</span>
+            <span class="cc-partners"><img src="assets/int-toast.svg" alt="Toast"><img src="assets/int-doordash.png" alt="DoorDash"></span>
+          </span>
+        </a>
+        <a class="case-card" style="--oy:8px;--rot:-1deg;--mr:-16px" href="https://trycartwheel.com/case-studies/nj-chicken-brand-case-study/" target="_blank" rel="noopener">
+          <span class="cc-ph"><img src="assets/cs/nj-fried-chicken-food.jpg" alt=""><span class="cc-shade"></span><span class="cc-brand">NJ fried chicken brand</span></span>
+          <span style="display:block;padding:16px 46px 18px 18px">
+            <span class="cc-tagrow"><span class="cc-tag">Full-suite delivery</span></span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">+52%</b> delivery volume</span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">$7,323</b> added revenue</span>
+            <span class="cc-partners"><img src="assets/int-toast.svg" alt="Toast"><span class="cc-ubox"><img src="assets/int-uberdirect.webp" alt="Uber Direct"></span></span>
+          </span>
+        </a>
+        <a class="case-card" style="--oy:-8px;--rot:1.2deg;--mr:-22px" href="https://trycartwheel.com/case-studies/flyboy-uk/" target="_blank" rel="noopener">
+          <span class="cc-ph"><img src="assets/cs/flyboy-food.jpg" alt="" style="object-position:center 45%"><span class="cc-shade"></span><img class="cc-logo" src="assets/cs/logo-flyboy-w.png" alt="Flyboy"></span>
+          <span style="display:block;padding:16px 46px 18px 18px">
+            <span class="cc-tagrow"><span class="cc-tag">Delivery visibility</span></span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">100%</b> of orders tracked</span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">Full control</b> on Toast</span>
+            <span class="cc-partners"><img src="assets/int-toast.svg" alt="Toast"></span>
+          </span>
+        </a>
+        <a class="case-card" style="--oy:12px;--rot:-.6deg;--mr:-26px" href="https://trycartwheel.com/case-studies/mr-jims/" target="_blank" rel="noopener">
+          <span class="cc-ph"><img src="assets/cs/mrjims-food.jpg" alt="" style="object-position:center 60%"><span class="cc-shade"></span><img class="cc-logo" src="assets/cs/logo-mrjims.png" alt="MrJim's Pizza"></span>
+          <span style="display:block;padding:16px 46px 18px 18px">
+            <span class="cc-tagrow"><span class="cc-tag">Hybrid delivery</span></span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">Unlimited</b> back-up drivers</span>
+            <span style="display:block;font-size:13.5px;line-height:1.7;color:var(--text)"><b style="color:var(--teal-d);font-weight:700">Faster</b> peak-hour deliveries</span>
+            <span class="cc-partners"><span class="cc-ubox"><img src="assets/int-uberdirect.webp" alt="Uber Direct"></span></span>
+          </span>
+        </a>
       </div>
     </div>
-    <div class="case-dots" id="js-case-dots"></div>
-    <div class="case-more">
-      <a href="#resources" class="btn btn-outline">Read all case studies <i class="ti ti-arrow-right"></i></a>
-    </div>
+    <div class="case-dots" id="js-case-dots" aria-hidden="true"></div>
+    <ul class="case-figures seo-static">
+      <li><strong>Jason's Deli:</strong> catering delivery automated across 242 corporate and franchise locations, 4.7+ driver rating</li>
+      <li><strong>Portillo's:</strong> 65 locations launched, full rollout in 10 weeks</li>
+      <li><strong>Potbelly:</strong> 430 locations onboarded, thousands of drivers live in days</li>
+      <li><strong>P.F. Chang's:</strong> 42% decrease in fulfillment issues, more repeat orders</li>
+      <li><strong>California Chicken Cafe:</strong> +24% on-time delivery, 3 hours of manual dispatch saved daily</li>
+      <li><strong>Mandy's:</strong> 490% ROI, $2,300 saved per month</li>
+      <li><strong>Illegal Pete's:</strong> 50% increase in catering order volume, +930% average tip</li>
+      <li><strong>National pizza chain:</strong> delivery time down from 63 to 47 minutes, $100K+ per year in operational savings</li>
+      <li><strong>Wings Over:</strong> 18 locations live in one month, 3 hours saved daily</li>
+      <li><strong>NJ fried chicken brand:</strong> +52% delivery volume, $7,323 in added revenue</li>
+      <li><strong>Flyboy (UK):</strong> 100% of orders tracked on Toast</li>
+      <li><strong>MrJim's Pizza:</strong> unlimited back-up drivers for peak-hour overflow</li>
+    </ul>
+    <div style="text-align:center"><a href="#resources" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--teal-d)">See all case studies <i class="ti ti-arrow-right"></i></a></div>
   </div>
 </section>
 
@@ -477,11 +610,11 @@
         <p class="section-copy">Cartwheel started as a delivery restaurant in LA, then as a delivery operation for hundreds of restaurants. We built the software we couldn't buy. Today it runs delivery for some of the country's biggest brands, and Portillo's liked it enough to invest.</p>
         <a href="team.html" style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--teal-d)">Read more about us <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px;aspect-ratio:1;max-width:460px;width:100%;margin:0 auto">
-        <div style="border-radius:16px;overflow:hidden"><img src="assets/team-panel.png" alt="Cartwheel on an industry panel" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block"></div>
-        <div style="border-radius:16px;overflow:hidden;margin-top:24px"><img src="assets/team-expo-pizza.jpg" alt="Cartwheel Hybrid Delivery booth at the expo" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block"></div>
-        <div style="border-radius:16px;overflow:hidden"><img src="assets/team-crew-staff.png" alt="Restaurant crew in uniform" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-        <div style="border-radius:16px;overflow:hidden;margin-top:24px"><img src="assets/team-expo-booth.jpg" alt="Cartwheel team at the FSTEC expo booth" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block"></div>
+      <div class="team-scatter">
+        <div class="team-shot ts-1"><img src="assets/team-panel.png" alt="Cartwheel on an industry panel" style="object-position:center 20%"></div>
+        <div class="team-shot ts-2"><img src="assets/team-expo-pizza.jpg" alt="Cartwheel Hybrid Delivery booth at the expo" style="object-position:center 40%"></div>
+        <div class="team-shot ts-3"><img src="assets/team-crew-staff.png" alt="Restaurant crew in uniform"></div>
+        <div class="team-shot ts-4"><img src="assets/team-expo-booth.jpg" alt="Cartwheel team at the FSTEC expo booth" style="object-position:center 40%"></div>
       </div>
     </div>
   </div>
@@ -558,38 +691,114 @@
 </section>
 
 <!-- TESTIMONIALS -->
+<section id="testimonials" class="seo-static">
+  <p>Trusted by the brands that move the most food.</p>
+  <blockquote><p>Cartwheel allows us to handle the highest priority orders with self-delivery, ensuring the experience is seamless, delivered with P.F. Chang's hospitality and encouraging the customer to return for repeat deliveries through our native ordering platforms.</p><footer>Candice Barnett, VP Off-Premises Dining, P.F. Chang's</footer></blockquote>
+  <blockquote><p>By implementing Cartwheel's unified delivery management platform, we've streamlined our operations, reduced the load on team members, and enhanced our ability to ensure the best, most efficient customer service across all ordering channels.</p><footer>Amy Schuster, Vice President of IT, Jason's Deli</footer></blockquote>
+  <blockquote><p>Chicago's love for pizza and football runs deep, and peak demand periods like Super Bowl weekend put real pressure on our operations. Cartwheel gives our store teams the control they need to make smart delivery decisions in real time while ensuring that every delivery feels like Giordano's, not a generic transaction.</p><footer>Nick Scarpino, CEO, Giordano's</footer></blockquote>
+  <blockquote><p>With more than 60 Portillo's locations nationwide and the highest average unit sales volumes in the fast-casual industry, we have a lot of deliveries to manage. It's important that our brand is well-represented. Our experience with Cartwheel has been so positive that we invested in the company so they can further develop services with brands in mind.</p><footer>Michael Osanloo, CEO, Portillo's</footer></blockquote>
+</section>
 <section class="band-mint">
   <div class="wrap">
     <div class="section-intro">
       <p class="eyebrow">What our clients say</p>
       <h2 class="h2">Trusted by the brands that move the most food.</h2>
     </div>
-    <div class="t-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:20px">
-      <div class="feat-card">
-        <i class="ti ti-quote" style="font-size:26px;line-height:1;color:var(--teal);margin-bottom:14px;display:block"></i>
-        <blockquote style="font-size:15px;line-height:1.6;color:var(--text);margin:0 0 16px">With more than 60 Portillo's locations nationwide and the highest average unit sales volumes in the fast-casual industry, we have a lot of deliveries to manage. It's important that our brand is well-represented. Our experience with Cartwheel has been so positive that we invested in the company so they can further develop services with brands in mind.</blockquote>
-        <div style="font-size:14px;font-weight:700;color:var(--head)">Michael Osanloo</div>
-        <div style="font-size:13px;color:var(--muted)">CEO, Portillo's</div>
+    <div class="t-carousel" id="js-testimonials">
+      <button type="button" class="t-nav t-prev" aria-label="Previous testimonial"><i class="ti ti-chevron-left"></i></button>
+      <div class="t-view">
+        <figure class="t-slide active" data-i="0">
+          <div class="t-brandrow"><img class="t-brand" src="assets/logo-pfchangs.svg" alt="P.F. Chang's"></div>
+          <div class="t-quoterow">
+            <i class="ti ti-quote" style="font-size:26px;line-height:1;color:var(--teal);margin-bottom:14px"></i>
+            <blockquote class="t-quote">"Cartwheel allows us to handle the highest priority orders with self-delivery, ensuring the experience is seamless, delivered with P.F. Chang's hospitality and encouraging the customer to return for repeat deliveries through our native ordering platforms."</blockquote>
+          </div>
+          <figcaption class="t-person">
+            <div class="t-avatar"><img src="assets/testi-barnett.jpg" alt="Candice Barnett"></div>
+            <div style="text-align:left"><div style="font-size:15px;font-weight:700;color:var(--head)">Candice Barnett</div><div style="font-size:13px;color:var(--muted)">VP Off-Premises Dining, P.F. Chang's</div></div>
+          </figcaption>
+        </figure>
+        <figure class="t-slide" data-i="1">
+          <div class="t-brandrow"><img class="t-brand" src="assets/logo-jasons-deli2.png" alt="Jason's Deli"></div>
+          <div class="t-quoterow">
+            <i class="ti ti-quote" style="font-size:26px;line-height:1;color:var(--teal);margin-bottom:14px"></i>
+            <blockquote class="t-quote">"By implementing Cartwheel's unified delivery management platform, we've streamlined our operations, reduced the load on team members, and enhanced our ability to ensure the best, most efficient customer service across all ordering channels."</blockquote>
+          </div>
+          <figcaption class="t-person">
+            <div class="t-avatar"><img src="assets/testi-schuster2.png" alt="Amy Schuster"></div>
+            <div style="text-align:left"><div style="font-size:15px;font-weight:700;color:var(--head)">Amy Schuster</div><div style="font-size:13px;color:var(--muted)">Vice President of IT, Jason's Deli</div></div>
+          </figcaption>
+        </figure>
+        <figure class="t-slide" data-i="2">
+          <div class="t-brandrow"><img class="t-brand" src="assets/logo-giordanos.png" alt="Giordano's"></div>
+          <div class="t-quoterow">
+            <i class="ti ti-quote" style="font-size:26px;line-height:1;color:var(--teal);margin-bottom:14px"></i>
+            <blockquote class="t-quote">"Chicago's love for pizza and football runs deep, and peak demand periods like Super Bowl weekend put real pressure on our operations. Cartwheel gives our store teams the control they need to make smart delivery decisions in real time while ensuring that every delivery feels like Giordano's, not a generic transaction. This is about protecting our brand while giving our teams the tools to succeed during our busiest moments."</blockquote>
+          </div>
+          <figcaption class="t-person">
+            <div class="t-avatar"><img src="assets/testi-scarpino-giordanos.png" alt="Nick Scarpino"></div>
+            <div style="text-align:left"><div style="font-size:15px;font-weight:700;color:var(--head)">Nick Scarpino</div><div style="font-size:13px;color:var(--muted)">CEO, Giordano's</div></div>
+          </figcaption>
+        </figure>
+        <figure class="t-slide" data-i="3">
+          <div class="t-brandrow"><img class="t-brand" src="assets/logo-portillos.svg" alt="Portillo's"></div>
+          <div class="t-quoterow">
+            <i class="ti ti-quote" style="font-size:26px;line-height:1;color:var(--teal);margin-bottom:14px"></i>
+            <blockquote class="t-quote">"With more than 60 Portillo's locations nationwide and the highest average unit sales volumes in the fast-casual industry, we have a lot of deliveries to manage. It's important that our brand is well-represented. Our experience with Cartwheel has been so positive that we invested in the company so they can further develop services with brands in mind."</blockquote>
+          </div>
+          <figcaption class="t-person">
+            <div class="t-avatar"><img src="assets/testi-osanloo.jpg" alt="Michael Osanloo"></div>
+            <div style="text-align:left"><div style="font-size:15px;font-weight:700;color:var(--head)">Michael Osanloo</div><div style="font-size:13px;color:var(--muted)">CEO, Portillo's</div></div>
+          </figcaption>
+        </figure>
+        <figure class="t-slide" data-i="4">
+          <div class="t-brandrow"><img class="t-brand" src="assets/logo-hungry-howies.png" alt="Hungry Howie's"></div>
+          <div class="t-quoterow">
+            <i class="ti ti-quote" style="font-size:26px;line-height:1;color:var(--teal);margin-bottom:14px"></i>
+            <blockquote class="t-quote">"We continue to see real value in maintaining a direct relationship with our guests and investing in our in-house delivery capabilities. Third-party delivery provides important additional reach and flexibility, and Cartwheel helps us bring these approaches together while maintaining a consistent guest experience as we modernize our delivery operations."</blockquote>
+          </div>
+          <figcaption class="t-person">
+            <div class="t-avatar"><span style="width:100%;height:100%;display:grid;place-items:center;background:var(--teal-wash);color:var(--teal-d)"><i class="ti ti-building-store" style="font-size:22px"></i></span></div>
+            <div style="text-align:left"><div style="font-size:15px;font-weight:700;color:var(--head)">Moe Shrikian</div><div style="font-size:13px;color:var(--muted)">EVP and General Counsel, Hungry Howie's</div></div>
+          </figcaption>
+        </figure>
+        <figure class="t-slide" data-i="5">
+          <div class="t-brandrow"><img class="t-brand" src="assets/logo-potbelly.svg" alt="Potbelly"></div>
+          <div class="t-quoterow">
+            <i class="ti ti-quote" style="font-size:26px;line-height:1;color:var(--teal);margin-bottom:14px"></i>
+            <blockquote class="t-quote">"With Cartwheel, our delivery program is as customizable as our menu. Since implementing Cartwheel's tools, Potbelly has been able to offer faster, more efficient delivery to our customers from more than 400 locations nationwide."</blockquote>
+          </div>
+          <figcaption class="t-person">
+            <div class="t-avatar"><span style="width:100%;height:100%;display:grid;place-items:center;background:var(--teal-wash);color:var(--teal-d)"><i class="ti ti-building-store" style="font-size:22px"></i></span></div>
+            <div style="text-align:left"><div style="font-size:15px;font-weight:700;color:var(--head)">Sam Martinez</div><div style="font-size:13px;color:var(--muted)">Business Systems Manager, Potbelly</div></div>
+          </figcaption>
+        </figure>
+        <figure class="t-slide" data-i="6">
+          <div class="t-brandrow"><img class="t-brand" src="assets/logo-portillos.svg" alt="Portillo's"></div>
+          <div class="t-quoterow">
+            <i class="ti ti-quote" style="font-size:26px;line-height:1;color:var(--teal);margin-bottom:14px"></i>
+            <blockquote class="t-quote">"Cartwheel allowed us to adjust our order volume to driver availability, eliminating the worry of having enough drivers to maintain delivery quality."</blockquote>
+          </div>
+          <figcaption class="t-person">
+            <div class="t-avatar"><img src="assets/testi-northway.jpg" alt="Dino Northway"></div>
+            <div style="text-align:left"><div style="font-size:15px;font-weight:700;color:var(--head)">Dino Northway</div><div style="font-size:13px;color:var(--muted)">Senior Manager Off-Premise Dining, Portillo's</div></div>
+          </figcaption>
+        </figure>
+        <figure class="t-slide" data-i="7">
+          <div class="t-brandrow"><img class="t-brand" src="assets/logo-jackrabbit.png" alt="JackRabbit Deliveries"></div>
+          <div class="t-quoterow">
+            <i class="ti ti-quote" style="font-size:26px;line-height:1;color:var(--teal);margin-bottom:14px"></i>
+            <blockquote class="t-quote">"Together, Cartwheel and Omnicart technologies offer the optimal end-to-end delivery management solution for local delivery operators, think of it as RDS 2.0. Local providers can now access via open APIs the sophisticated tech and customizable offerings typically only available within expensive enterprise platforms."</blockquote>
+          </div>
+          <figcaption class="t-person">
+            <div class="t-avatar"><img src="assets/testi-polk.png" alt="Kevin Polk"></div>
+            <div style="text-align:left"><div style="font-size:15px;font-weight:700;color:var(--head)">Kevin Polk</div><div style="font-size:13px;color:var(--muted)">Owner, JackRabbit Deliveries</div></div>
+          </figcaption>
+        </figure>
       </div>
-      <div class="feat-card">
-        <i class="ti ti-quote" style="font-size:26px;line-height:1;color:var(--teal);margin-bottom:14px;display:block"></i>
-        <blockquote style="font-size:15px;line-height:1.6;color:var(--text);margin:0 0 16px">Cartwheel allows us to handle the highest priority orders with self-delivery, ensuring the experience is seamless, delivered with P.F. Chang's hospitality and encouraging the customer to return for repeat deliveries through our native ordering platforms.</blockquote>
-        <div style="font-size:14px;font-weight:700;color:var(--head)">Candice Barnett</div>
-        <div style="font-size:13px;color:var(--muted)">VP Off-Premises Dining, P.F. Chang's</div>
-      </div>
-      <div class="feat-card">
-        <i class="ti ti-quote" style="font-size:26px;line-height:1;color:var(--teal);margin-bottom:14px;display:block"></i>
-        <blockquote style="font-size:15px;line-height:1.6;color:var(--text);margin:0 0 16px">By implementing Cartwheel's unified delivery management platform, we've streamlined our operations, reduced the load on team members, and enhanced our ability to ensure the best, most efficient customer service across all ordering channels.</blockquote>
-        <div style="font-size:14px;font-weight:700;color:var(--head)">Amy Schuster</div>
-        <div style="font-size:13px;color:var(--muted)">Vice President of IT, Jason's Deli</div>
-      </div>
-      <div class="feat-card">
-        <i class="ti ti-quote" style="font-size:26px;line-height:1;color:var(--teal);margin-bottom:14px;display:block"></i>
-        <blockquote style="font-size:15px;line-height:1.6;color:var(--text);margin:0 0 16px">With Cartwheel we were able to use our team members to deliver our highest-value orders. Instead of relying exclusively on third-party delivery companies for fulfilment, we have been able to cross-train our staff so that they can become drivers for our own fleet.</blockquote>
-        <div style="font-size:14px;font-weight:700;color:var(--head)">Nick Scarpino</div>
-        <div style="font-size:13px;color:var(--muted)">SVP of Marketing, Portillo's</div>
-      </div>
+      <button type="button" class="t-nav t-next" aria-label="Next testimonial"><i class="ti ti-chevron-right"></i></button>
     </div>
+    <div class="t-controls"><div class="t-dots" id="js-t-dots"></div></div>
   </div>
 </section>
 
