@@ -848,4 +848,142 @@
       el.addEventListener('animationiteration', function () { dtSpawnRider(el); });
     });
   }
+
+  /* ===== Book a demo: interactive pixel map + pin cursor ===== */
+  var demoSec = document.getElementById('demo');
+  if (demoSec && !prefersReducedMotion) {
+    var demoSharp = demoSec.querySelector('.demo-map-sharp');
+    var demoDim = demoSec.querySelector('.demo-dim');
+    var demoCursor = demoSec.querySelector('.demo-cursor');
+    var demoCv = demoSec.querySelector('.demo-px');
+    var demoCtx = demoCv && demoCv.getContext('2d');
+    var DEMO_PITCH = 10, DEMO_SZ = 3, DEMO_R = 130, DEMO_PUSH = 18;
+    var demoPts = [], demoW = 0, demoH = 0, demoMx = -9999, demoMy = -9999, demoRaf = 0, demoLoop = 0, demoSampler = null, demoShock = null;
+    var demoMapImg = new Image();
+    demoMapImg.src = 'assets/demo-map-bg.png';
+
+    var demoMakeSampler = function () {
+      try {
+        var iw = demoMapImg.naturalWidth, ih = demoMapImg.naturalHeight;
+        if (!iw) return;
+        var k = Math.min(1, 900 / iw), oc = document.createElement('canvas');
+        oc.width = Math.round(iw * k); oc.height = Math.round(ih * k);
+        var oct = oc.getContext('2d', { willReadFrequently: true });
+        oct.drawImage(demoMapImg, 0, 0, oc.width, oc.height);
+        demoSampler = { w: oc.width, h: oc.height, iw: iw, ih: ih, d: oct.getImageData(0, 0, oc.width, oc.height).data };
+      } catch (err) { demoSampler = null; }
+    };
+    var demoIsLand = function (ix, iy) {
+      if (!demoSampler) return true;
+      var px = Math.round(ix / demoSampler.iw * demoSampler.w), py = Math.round(iy / demoSampler.ih * demoSampler.h);
+      if (px < 0 || py < 0 || px >= demoSampler.w || py >= demoSampler.h) return false;
+      var i = (py * demoSampler.w + px) * 4, r = demoSampler.d[i], b = demoSampler.d[i + 2];
+      return !(b - r > 20 && r < 78);
+    };
+    var demoDraw = function () {
+      demoRaf = 0;
+      var t = performance.now() / 1000;
+      demoCtx.clearRect(0, 0, demoW, demoH);
+      var st = demoShock ? (performance.now() - demoShock.t0) / 900 : 2;
+      if (st >= 1) demoShock = null;
+      for (var n = 0; n < demoPts.length; n++) {
+        var p = demoPts[n];
+        var x = p.x, y = p.y, sz = DEMO_SZ;
+        var dx = p.x - demoMx, dy = p.y - demoMy, d = Math.hypot(dx, dy);
+        if (d < DEMO_R) {
+          var k = 1 - d / DEMO_R, dd = d || 1;
+          x += (dx / dd) * DEMO_PUSH * k; y += (dy / dd) * DEMO_PUSH * k;
+          sz = DEMO_SZ + k * 1.5;
+        }
+        var blast = 0;
+        if (demoShock) {
+          var bx = p.x - demoShock.x, by = p.y - demoShock.y, bd = Math.hypot(bx, by) || 0.01;
+          if (bd < 260) {
+            var env = (1 - bd / 260) * Math.pow(1 - st, 2) * Math.sin(Math.min(st / .18, 1) * Math.PI / 2);
+            blast = env;
+            x += (bx / bd) * 42 * env; y += (by / bd) * 42 * env;
+            sz = DEMO_SZ + env * 2.4;
+          }
+        }
+        if (p.s) {
+          var pulse = p.p ? .38 + .42 * (0.5 + 0.5 * Math.sin(t * 1.6 + p.ph)) : .34;
+          demoCtx.fillStyle = 'rgba(42,223,180,' + Math.min(1, pulse + blast * .6).toFixed(3) + ')';
+        } else if (blast > .01) {
+          demoCtx.fillStyle = 'rgba(42,223,180,' + Math.min(.9, .13 + blast * .8).toFixed(3) + ')';
+        } else {
+          demoCtx.fillStyle = 'rgba(170,196,190,.13)';
+        }
+        demoCtx.fillRect(x - sz / 2, y - sz / 2, sz, sz);
+      }
+      if (demoLoop) demoRaf = requestAnimationFrame(demoDraw);
+    };
+    var demoBuild = function () {
+      var r = demoSec.getBoundingClientRect();
+      demoW = Math.round(r.width); demoH = Math.round(r.height);
+      if (!demoW || !demoH || !demoCv) return;
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      demoCv.width = demoW * dpr; demoCv.height = demoH * dpr;
+      demoCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var lw = demoW + 40, lh = demoH + 40, iw = (demoSampler && demoSampler.iw) || 1672, ih = (demoSampler && demoSampler.ih) || 941;
+      var s = Math.max(lw / iw, lh / ih), dw = iw * s, dh = ih * s;
+      var ox = -20 + (lw - dw) / 2, oy = -20 + (lh - dh) / 2;
+      demoPts = [];
+      for (var y = DEMO_PITCH / 2; y < demoH; y += DEMO_PITCH) {
+        for (var x = DEMO_PITCH / 2; x < demoW; x += DEMO_PITCH) {
+          var land = demoIsLand((x - ox) / s, (y - oy) / s);
+          var spark = land && Math.random() < .1;
+          demoPts.push({ x: x, y: y, s: spark, p: spark && Math.random() < .35, ph: Math.random() * 6.28 });
+        }
+      }
+      if (!demoRaf) demoRaf = requestAnimationFrame(demoDraw);
+    };
+    if (demoCtx) {
+      if (demoMapImg.complete) { demoMakeSampler(); demoBuild(); }
+      else demoMapImg.addEventListener('load', function () { demoMakeSampler(); demoBuild(); });
+      demoBuild();
+      if (window.ResizeObserver) new ResizeObserver(demoBuild).observe(demoSec);
+      else window.addEventListener('resize', demoBuild);
+      if (window.IntersectionObserver) {
+        new IntersectionObserver(function (entries) {
+          demoLoop = entries[0].isIntersecting ? 1 : 0;
+          if (demoLoop && !demoRaf) demoRaf = requestAnimationFrame(demoDraw);
+        }, { threshold: 0 }).observe(demoSec);
+      }
+    }
+    demoSec.addEventListener('mousemove', function (e) {
+      if (window.innerWidth <= 880) return;
+      var sr = demoSec.getBoundingClientRect();
+      var x = e.clientX - sr.left, y = e.clientY - sr.top;
+      if (demoCursor) {
+        demoCursor.style.transform = 'translate(' + x.toFixed(0) + 'px,' + y.toFixed(0) + 'px) translate(-50%,-100%)';
+        demoCursor.style.opacity = '1';
+      }
+      if (demoSharp) {
+        var rs = demoSharp.getBoundingClientRect();
+        var m = 'radial-gradient(circle 450px at ' + (e.clientX - rs.left).toFixed(0) + 'px ' + (e.clientY - rs.top).toFixed(0) + 'px,#000 0%,rgba(0,0,0,.55) 55%,transparent 100%)';
+        demoSharp.style.webkitMaskImage = m; demoSharp.style.maskImage = m;
+        demoSharp.style.opacity = '1';
+      }
+      if (demoDim) {
+        var rd = demoDim.getBoundingClientRect();
+        var dm = 'radial-gradient(circle 450px at ' + (e.clientX - rd.left).toFixed(0) + 'px ' + (e.clientY - rd.top).toFixed(0) + 'px,rgba(0,0,0,.45) 0%,rgba(0,0,0,.75) 55%,#000 100%)';
+        demoDim.style.webkitMaskImage = dm; demoDim.style.maskImage = dm;
+      }
+      if (demoCtx) { demoMx = x; demoMy = y; if (!demoRaf) demoRaf = requestAnimationFrame(demoDraw); }
+    });
+    demoSec.addEventListener('mouseleave', function () {
+      if (demoCursor) demoCursor.style.opacity = '0';
+      if (demoSharp) demoSharp.style.opacity = '0';
+      if (demoDim) { demoDim.style.webkitMaskImage = ''; demoDim.style.maskImage = ''; }
+      if (demoCtx) { demoMx = demoMy = -9999; if (!demoRaf) demoRaf = requestAnimationFrame(demoDraw); }
+    });
+    demoSec.addEventListener('pointerdown', function (e) {
+      if (demoCursor) { demoCursor.classList.remove('hop'); void demoCursor.offsetWidth; demoCursor.classList.add('hop'); }
+      if (demoCtx) {
+        var sr2 = demoSec.getBoundingClientRect();
+        demoShock = { x: e.clientX - sr2.left, y: e.clientY - sr2.top, t0: performance.now() };
+        if (!demoRaf) demoRaf = requestAnimationFrame(demoDraw);
+      }
+    });
+  }
 })();

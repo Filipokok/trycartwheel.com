@@ -639,12 +639,28 @@ h1,h2,h3,h4,h5{font-weight:400}
 /* Lead form */
 .cat-lead{position:relative;overflow:hidden;padding:clamp(56px,8vw,84px) 0;background:var(--dark);color:#fff}
 .cat-lead::before{content:"";position:absolute;inset:-20px;background:url('../assets/demo-map-bg.png') center/cover no-repeat;filter:blur(3px);pointer-events:none}
-.cat-lead::after{content:"";position:absolute;inset:0;background:var(--dark);opacity:.55;pointer-events:none}
 .cat-lead-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
 .cat-lead-copy p{color:var(--ondark-muted);max-width:40ch;margin-top:12px}
 .cat-lead-form{--surface:#ffffff;--text:#31373F;--head:#31373F;--muted:rgba(49,55,63,.66);--border:rgba(49,55,63,.12);--teal-d:#008870;--teal-wash:#E6F4F1;--shadow:0 1px 2px rgba(49,55,63,.05),0 14px 34px rgba(49,55,63,.07);background:var(--surface);border-radius:var(--card-radius);padding:clamp(24px,3vw,30px);box-shadow:0 30px 60px -18px rgba(0,0,0,.45)}
 .cat-lead-note{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.5}
 .cat-lead-note a{color:var(--teal-d);text-decoration:underline}
+
+/* Demo section interactive pixel map + pin cursor */
+.demo-map-sharp{position:absolute;inset:-20px;background:url('../assets/demo-map-bg.png') center/cover no-repeat;pointer-events:none;opacity:0;transition:opacity .4s ease}
+.demo-dim{position:absolute;inset:0;background:var(--dark);opacity:.55;pointer-events:none}
+.demo-px{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.demo-cursor{position:absolute;left:0;top:0;z-index:8;pointer-events:none;opacity:0;transition:opacity .2s ease}
+.demo-cursor img{height:34px;width:auto;display:block;filter:drop-shadow(0 6px 10px rgba(0,0,0,.5));transform-origin:50% 100%}
+.demo-cursor.hop img{animation:demoCurHop .45s cubic-bezier(.45,.05,.35,1)}
+@keyframes demoCurHop{0%{transform:translateY(0)}40%{transform:translateY(-14px)}70%{transform:translateY(2px)}100%{transform:translateY(0)}}
+#demo,#demo a,#demo label,#demo button,#demo input,#demo [role="button"]{cursor:none!important}
+#demo .demo-form,#demo .demo-form *{cursor:auto!important}
+#demo .demo-form label,#demo .demo-form label *,#demo .demo-form button,#demo .demo-form a,#demo .demo-form select,#demo .df-fdd-item{cursor:pointer!important}
+#demo .demo-form input,#demo .demo-form textarea{cursor:text!important}
+@media(hover:none),(prefers-reduced-motion:reduce){
+  .demo-cursor{display:none}
+  #demo,#demo a,#demo label,#demo button,#demo input,#demo [role="button"]{cursor:auto!important}
+}
 
 /* Demo form (Book a demo) */
 .demo-form .btn{width:100%;justify-content:center;min-height:48px}
